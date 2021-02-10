@@ -6,6 +6,15 @@ function getFile() {
   document.getElementById("fileInput").click();
 }
 
+function download() {
+    const img1 = document.createElement('img');
+    const img2 = document.createElement('img');
+    img1.src = "https://i.imgur.com/ixCIQvH.png";
+    img2.src = "https://i.imgur.com/jye1Urg.png";
+    outputArea.appendChild(img1);
+    outputArea.appendChild(img2)
+}
+
 inputElement.onchange = (e) => {
   const file = inputElement.files[0];
   if (!file) return
@@ -21,12 +30,11 @@ inputElement.onchange = (e) => {
     var json = JSON.parse(loadableFile);
     var outputString = '';
     outputArea.innerHTML = '';
-    outputArea.appendChild(document.createTextNode(`Song name: ${json.song.song}`));
-    outputArea.appendChild(document.createElement("br"));
-    outputArea.appendChild(document.createTextNode(`Song BPM: ${json.song.bpm}`));
-    const bpm = json.song.bpm;
-    outputArea.appendChild(document.createElement("br"));
-    outputArea.appendChild(document.createTextNode(`Song speed: ${json.song.speed}x (may be useful for setting multipliers)`));
+    const outputTextInitial = document.createElement("h3");
+    outputTextInitial.style = "text-align: center; display: block;"
+    outputTextInitial.innerHTML = `${json.song.song} | ${json.song.bpm} BPM | SPEED ${json.song.speed.toFixed(2)}`
+    outputArea.appendChild(outputTextInitial);
+    const bpm = json.song.bpm
     var scratchList = [];
     var beginsection_timing = 0;
     for (i = 0; i < json.notes.length; i++) {
@@ -59,10 +67,15 @@ inputElement.onchange = (e) => {
     document.body.appendChild(a);
     const url = window.URL.createObjectURL(blob);
     const link = document.createElement('a');
+    if (outputArea.style.display === "none") {
+        outputArea.style.display = "block"
+    }
     link.href = url;
     link.innerText = 'Download';
     link.download = "beatmap.txt";
-    link.style = "font-weight: bold; background-color: #0fbd8c; color: white; padding: 1em 1.25em; border: 0; border-radius: 0.25rem; margin: 0.5em; text-decoration: none";
+    link.id = "download";
+    link.addEventListener('click', function(){download()}, false);
+    link.style = "display: block; text-align: center; font-weight: bold; background-color: #0fbd8c; color: white; padding: 1em 1.25em; border: 0; border-radius: 0.25rem; margin: 0.5em; text-decoration: none";
     outputArea.appendChild(link);
   }
   reader.onerror = (e) => {
