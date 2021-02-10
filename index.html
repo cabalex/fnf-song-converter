@@ -3,7 +3,66 @@
 	<head>
 		<title>Funkin' Song Converter</title>
 	</head>
+	<style>
+		body {
+			font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+		},
+		input {
+			position: absolute;
+			left: -9999999rem !important;
+			display: none !important;
+		},
+		#topBar {
+			display: block;
+			position: fixed;
+			top: 0;
+			list-style-type: disc;
+			background-color: #4d97ff;
+			width: 100%;
+			height: 50px;
+		},
+		#topBar > ul {
+			list-style: none;
+			flex-wrap: nowrap;
+			flex-direction: row
+			justify-content: flex-start;
+			display: flex;
+		},
+		.logo {
+			background-image: url("https://scratch.mit.edu/images/logo_sm.png");
+			display: block;
+			margin: 0 6px 0 0;
+			width: 81px;
+			height: 50px;
+			background-size: 95%;
+			background-repeat: no-repeat;
+		}
+	</style>
 	<body>
-		<h1>Hello world</h1>
+		<div id="topBar" style="background-color: #4d97ff; width: 100%; height: 50px; align-items: center; display: flex; flex-direction: row; position:fixed; top: 0; left: 0">
+			<ul style="list-style: none; display: flex; flex-direction: row; align-items: center">
+				<a href="https://scratch.mit.edu"><image src="https://scratch.mit.edu/images/logo_sm.png" height="40px"></image></a>
+				</li>
+				<li class="heading" style="padding: 1em">
+					<a style="color: #ffffff; text-decoration: none" href="https://scratch.mit.edu/projects/484321587"><b>FNF Scratch song converter</b></a>
+				</li>
+		</div>
+		<div style="padding: 5em 1em">
+			Convert your songs made in the Friday Night Funkin' Editor to song maps that the Scratch program can read.
+			<br></br>
+			Nothing is uploaded- it's just Javascript.
+			<br></br>
+			Need help? Try checking the "README" sprite in the main project. (There might be documentation here later)
+		</div>
+		<form>
+		  	<div style="width: 50%; flex-direction: row; justify-content: left; flex-wrap: wrap; display: flex; background-color: rgba(77, 151, 255, 0.25); align-items: center; border-radius: 0.25rem; padding: 0 0.5em">
+			  	<p id="fileName" onclick="getFile()" style="background-color: #fafafa; padding: 1em 1.25em; margin: .5em; border: 2px solid rgba(0, 0, 0, 0.2); border-radius: 0.25rem">Upload your file...</p>
+			  	<button id="buttonDiv" onclick="getFile()" style="font-weight: bold; background-color: #4d97ff; color: white; padding: 1em 1.25em; border: 0; border-radius: 0.25rem; margin: 0.5em"><span>Upload</span></button>
+			</div>
+		  	<div style='height: 0px;width: 0px; overflow:hidden;'><input type="file" accept=".json", id="fileInput", onchange="fileLoad(event)"></div>
+		</form>
+		<div id="output" style="width: 50%; flex-direction: row; justify-content: left; flex-wrap: wrap; display: flex; background-color: rgba(77, 151, 255, 0.25); align-items: center; border-radius: 0.25rem; padding:0.5em; margin:0.5em 0"></div>
+		<script src="convert.js"></script>
+		<noscript>I'm not sure how you expect this to work without JS lol</noscript>
 	</body>
 </html>
