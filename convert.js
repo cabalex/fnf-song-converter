@@ -31,7 +31,7 @@ inputElement.onchange = (e) => {
     var beginsection_timing = 0
     for (i = 0; i < json.notes.length; i++) {
         section = json.notes[i]
-        if (section.mustHitSection = false) {
+        if (section.mustHitSection == false) {
             var assignment = [0, 1, 2, 3, 4, 5, 6, 7]
             scratchList.push(`#0-${beginsection_timing}`)
         } else {
@@ -42,7 +42,7 @@ inputElement.onchange = (e) => {
         var notelist = []
         for (x = 0; x < section.sectionNotes.length; x++) {
             var note = section.sectionNotes[x]
-            if (note[0].toString().split(".").length = 1) {
+            if (note[0].toString().split(".").length == 1) {
                 notelist.push(`?${note[0].toString().padStart(7, '0')}_${assignment[note[1]]}_${note[2]}`);
             } else {
                 notelist.push(`?${note[0].toFixed(4).padStart(12, '0')}_${assignment[note[1]]}_${note[2]}`);
