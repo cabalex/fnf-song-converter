@@ -72,7 +72,7 @@ inputElement.onchange = (e) => {
     }
     link.href = url;
     link.innerText = 'Download';
-    link.download = "beatmap.txt";
+    link.download = file.name.split(".")[0] + ".txt";
     link.id = "download";
     link.addEventListener('click', function(){download()}, false);
     link.style = "display: block; text-align: center; font-weight: bold; background-color: #0fbd8c; color: white; padding: 1em 1.25em; border: 0; border-radius: 0.25rem; margin: 0.5em; text-decoration: none";
