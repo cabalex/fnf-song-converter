@@ -37,8 +37,8 @@ inputElement.onchange = (e) => {
     const bpm = json.song.bpm
     var scratchList = [];
     var beginsection_timing = 0;
-    for (i = 0; i < json.notes.length; i++) {
-        section = json.notes[i];
+    for (i = 0; i < json.song.notes.length; i++) {
+        section = json.song.notes[i];
         if (section.mustHitSection == false) {
             var assignment = [0, 1, 2, 3, 4, 5, 6, 7];
             scratchList.push(`#0-${beginsection_timing}`);
