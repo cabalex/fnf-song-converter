@@ -18,8 +18,26 @@
 			vertical-align: top;
 			align-self: right;
 		}
+		h3 {
+			border-radius: 0.25em;
+			background-color: #4d97ff;
+			height: 100%;
+			padding: 1em;
+			color: white;
+		}
+		.material-icons {
+			vertical-align: middle;
+		}
+		img {
+			padding: 1em;
+		}
+		.code a {
+			font-family: "Consolas", sans-serif;
+		}
 	</style>
 	<body>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 		<div id="topBar" style="background-color: #4d97ff; width: 100%; height: 50px; align-items: center; display: flex; flex-direction: row; position:fixed; top: 0; left: 0">
 			<ul style="list-style: none; display: flex; flex-direction: row; align-items: center; padding-left:0">
 				<li class="heading" style="padding: 1em">
@@ -31,9 +49,72 @@
 				<li class="heading" style="padding: 1em">
 					<a style="color: #ffffff; text-decoration: none" href="https://cabalex.github.io/fnf-song-converter"><b>FNF Scratch song converter</b></a>
 				</li>
+			</ul>
 		</div>
 		<br></br>
 		<h2>So you want to make a song, huh?</h2>
-		<b>Coming soon (bug me if you want it faster)</b>
+		You'll need:
+		<ul>
+			<li>A song beatmap (or see step 1 for how to make your own)</li>
+			<li>A song MP3 (duh)</li>
+			<li>[optional] A vocal track MP3</li>
+			<li>Some time</li>
+		</ul>
+		<h3><span class="material-icons">build</span> STEP 1 | Making the actual song map</h3>
+		<b>If you are importing a song map from somewhere else and already have the JSON file, skip this step.</b>
+		<br></br>
+		The Scratch project doesn't really have a clean way of making songs right off the bat, and the lists are definitely daunting to work with! Don't worry, it's not as bad as it seems. Although my Scratch song editor is coming soon, <b>the easiest way to create song maps is through the official Friday Night Funkin' song editor, built into the game.</b>
+		<br></br>
+		Head to <a href="https://ninja-muffin24.itch.io/funkin">the official game</a> and load it up. Go to Free Play mode and enter any song you prefer.
+		<br></br>
+		Once you're in the song, hit <b>7</b> on your keyboard. Bam! It's a song editor! 
+		<br><img src="https://i.imgur.com/8HLrI6o.png" width="500px"></img></br>
+		Now there's a lot of stuff in here, and I wouldn't do it justice by explaining everything about it. But here's <a href="https://www.youtube.com/watch?v=BstyEfnXdKM">a good guide on how to get started with it</a>.
+		<br></br>
+		<br>When you're done, hit "Save" in the Song tab. It should download a JSON file, like this.</br>
+		<img src="https://i.imgur.com/3SONGwY.png" width="200px"></img></br>
+		<br>Now, what do we do with this JSON? Well...</br>
+		<h3><span class="material-icons">swap_horiz</span> STEP 2 | Converting your song map</h3>
+		You're already here! <a href="https://cabalex.github.io/fnf-song-converter">Go back to the main page</a> and click "Upload your file...". Select your JSON. If everything went smoothly, it should look something like this:
+		<br><img src="https://i.imgur.com/BS0G7qS.png" width="750px"></img></br>
+		Click "Download". <br>Take note of the BPM!</br> It'll be important later.
+		<br></br>
+		Now, you'll have a text file downloaded. Don't worry, we're like halfway there!
+		<h3><span class="material-icons">upload</span> STEP 3 | Importing your song map</h3>
+		Go to your remixed version of the Friday Night Funkin' Scratch project. Scroll down to variables and click "Make a List". You guessed it, this'll be where your song beatmap will be imported!
+		<br><img src="https://i.imgur.com/5EqnzOj.png" width="200px"></img></br>
+		Enter a name, make sure it's "For all sprites", and click OK.
+		<br><img src="https://i.imgur.com/dziPLaP.png" width="400px"></img></br>
+		Here's the interesting part. Right click on your list in the stage and hit "Import". Then, select the text file you got from my website.
+		<br><img src="https://i.imgur.com/ldXZ3de.png" width="500px"></img></br>
+		If everything worked out, you should have a respectable looking beatmap in the game! Good job.
+		<br><img src="https://i.imgur.com/53Bc1eo.png" width="300px"></img></br>
+		<h3><span class="material-icons">mode_edit</span> STEP 4 | Configuring the rest</h3>
+		Show the "_songlist" list, and then add your song name to it. <b>Your song must be all lower case and consist of letters/numbers/spaces only! It also must be different from the other songs in the list (don't do what I'm doing obviously), or else you'll have problems.</b> Other characters won't show up.
+		<br><img src="https://i.imgur.com/C7NrmHk.png" width="300px"></img></br>
+		If you hit play, it'll show up in the menu! It's like a real song!
+		<br><img src="https://i.imgur.com/HCs8tu5.png" width="500px"></img></br>
+		(I won't explain how to fix the high scores in this guide; it's a bit overly complicated.)
+		<br>Now, the... finnicky part.</br>
+		<br>Go to the "songHandler" sprite, and scroll all the way to the bottom-left. You should be looking at a super long script with a lot of "if currentSongName = ..." blocks. Copy the below script, and change them to your specific song:</br>
+		<br><img src="https://i.imgur.com/rCvrQOe.png" width="700px"></img></br>
+		<ul>
+			<li><b>song name</b> - what you called your song in the _songlist.</li>
+			<li><b>song bpm</b> - the BPM of your song, shown in the converter (I said to remember it!)</li>
+			<li><b>multiplier</b> - the note speed. <u>It's not what you'd think!</u> Lower is faster, while higher is slower. I find that a range of 9-12 is best for most songs, but experiment and see which fits your song best.</li>
+			<li><b>beats before ending</b> - how many beats are between the last note in the beat map and the song actually being over. For example, if the last note is about 4 beats before the end of the song, you'd set this to 4.</li>
+			<li><div class="code"><b>1P</b> - your player character. Possible values are <a>bf, bf_pixel</a>. Note that setting 1P to <a>bf_pixel</a> will also set the notes to be pixellated as well.</div></li>
+			<li><div class="code"><b>2P</b> - the opponent. Possible values are <a>gf, dad, spookykids, pico, mom, momdad, monster_christmas</a> (OLD VERSION ONLY)<a>, senpai_1, senpai_2, senpai_3</a></div></li>
+			<li><div class="code"><b>currSongStage</b> - the stage your song will be performed on. Possible values are <a>stage, spookystage, picostage, momcarstage, christmasstage, schoolstage</a></div>
+			<br><b>Note:</b> Although it is fixed on newer versions of the project, many old versions do not check for the currSongStage properly; you may need to go to the individual stage's sprite and add an exception manually (search for the script that says something along the lines of "if currSongName == ...".</br></li>
+		</ul>
+		That's mostly the complicated parts over with! All you just have to do is import your songs. Go to the Sounds tab of the songHandler sprite and import your song (Note: if you have a vocal track, do not import it here!). Then, to the upper left of the script you just made, you'll find the Song loader script. Add onto it like so (of course, replacing your song name and your song music):
+		<br><img src="https://i.imgur.com/ntbd2Jl.png" width="300px"></img></br>
+		If you have a vocal track, go to the vocalHandler and add it there in the same way, just now with your vocal track instead of your instrumental track.
+		<br>
+		<h3><span class="material-icons">verified</span> STEP 5 | Testing your map / you're done!</h3>
+		Start the game, and try your map out! It should be exactly as you've set it up. Share it with the world, and have everyone gasp at your amazingness! You have my approval- you sat through this guide, after all.
+		<br></br>
+		<b>Any questions? As long as they're specific (not "i need help with all of it"), don't hesitate to ask me on my profile!</b>
 	</body>
 </html>
