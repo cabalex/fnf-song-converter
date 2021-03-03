@@ -106,7 +106,7 @@
 			<li><div class="code"><b>1P</b> - your player character. Possible values are <a>bf, bf_pixel</a>. Note that setting 1P to <a>bf_pixel</a> will also set the notes to be pixellated as well.</div></li>
 			<li><div class="code"><b>2P</b> - the opponent. Possible values are <a>gf, dad, spookykids, pico, mom, momdad, monster_christmas</a> (OLD VERSION ONLY)<a>, senpai_1, senpai_2, senpai_3</a></div></li>
 			<li><div class="code"><b>currSongStage</b> - the stage your song will be performed on. Possible values are <a>stage, spookystage, picostage, momcarstage, christmasstage, schoolstage</a></div>
-			<br><b>Note:</b> Although it is fixed on newer versions of the project, many old versions do not check for the currSongStage properly; you may need to go to the individual stage's sprite and add an exception manually (search for the script that says something along the lines of "if currSongName == ...".</br></li>
+			<b>Note:</b> Although it is fixed on newer versions of the project, many old versions do not check for the currSongStage properly; you may need to go to the individual stage's sprite and add an exception manually (search for the script that says something along the lines of "if currSongName == ...".</li>
 		</ul>
 		That's mostly the complicated parts over with! All you just have to do is import your songs. Go to the Sounds tab of the songHandler sprite and import your song (Note: if you have a vocal track, do not import it here!). Then, to the upper left of the script you just made, you'll find the Song loader script. Add onto it like so (of course, replacing your song name and your song music):
 		<br><img src="https://i.imgur.com/ntbd2Jl.png" width="300px"></img></br>
