@@ -1,0 +1,104 @@
+!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Funkin' Song Converter</title>
+	</head>
+	<style>
+		body {
+			font-family: "Helvetica Neue", "Helvetica", Arial,sans-serif;
+		}
+		footer #credits {
+			text-decoration: none !important;
+			color: white;
+		}
+		img {
+			vertical-align: middle
+		}
+		#download {
+			vertical-align: top;
+			align-self: right;
+		}
+		h3 {
+			border-radius: 0.25em;
+			background-color: #4d97ff;
+			padding: 1em;
+			color: white;
+		}
+		.material-icons {
+			vertical-align: middle;
+		}
+		img {
+			padding: 1em;
+		}
+		.code a {
+			font-family: "Consolas", sans-serif;
+		}
+		.tooltip {
+		  position: relative;
+		  display: inline-block;
+		  border-bottom: 1px dotted black;
+		}
+
+		.tooltip .tooltiptext {
+		  visibility: hidden;
+		  background-color: black;
+		  color: #fff;
+		  width: 300%;
+		  text-align: center;
+		  border-radius: 6px;
+		  padding: 5px;
+		  
+		  /* Position the tooltip */
+		  position: absolute;
+		  z-index: 1;
+		  bottom: 100%;
+		  left: 0%;
+		}
+
+		.tooltip:hover .tooltiptext {
+		  visibility: visible;
+		}
+	</style>
+	<body>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+		<div id="topBar" style="background-color: #4d97ff; width: 100%; height: 50px; align-items: center; display: flex; flex-direction: row; position:fixed; top: 0; left: 0">
+			<ul style="list-style: none; display: flex; flex-direction: row; align-items: center; padding-left:0">
+				<li class="heading" style="padding: 1em">
+					<a style="color: #ffffff; text-decoration: none; background-color: #0fbd8c; padding: 1em" href="https://cabalex.github.io"><b>cabalex.github.io</b></a>
+				</li>
+				<li>
+					<a href="https://scratch.mit.edu"><image src="https://scratch.mit.edu/images/logo_sm.png" height="40px"></image></a>
+				</li>
+				<li class="heading" style="padding: 1em">
+					<a style="color: #ffffff; text-decoration: none" href="https://cabalex.github.io/fnf-song-converter"><b>FNF Scratch song converter</b></a>
+				</li>
+			</ul>
+		</div>
+		<br></br>
+		<h2>Friday Night Funkin' Scratch Project Downloads</h2>
+		Take your pick on what project you want to download. <b>Unless you absolutely need Winter Horrorland, I recommend the latest version.</b>
+		<h3><span class="material-icons">upcoming</span> Download the latest version (v11)</h3>
+		<b><a href="https://mega.nz/file/W8ABAAjQ#BzXlWy99ZYwYIEcx_02CwsQXXcchg14-pWJvH25q3Wk" style="text-decoration: none; color:white; padding:0.5em; background-color:#4d97ff; margin-top: 3em; margin-bottom:1em; border-radius:0.25em"><span class="material-icons">get_app</span> Download the .sb3 file</a> <a href="https://turbowarp.org/491440657/" style="text-decoration: none; color:white; padding:0.5em; background-color:#0fbd8c; margin-top: 3em; margin-bottom:1em; border-radius:0.25em"><span class="material-icons">sports_esports</span> Edit/download the file in Turbowarp</a></b>
+		<h3 style="background-color: #afafaf"><span class="material-icons">archive</span> Download the latest version with Winter Horrorland included (v7)</h3>
+		<b>This will no longer be updated!</b> While you can add back support manually, I will no longer be maintaining a version with Winter Horrorland included. <div class="tooltip">Here's why.<span class="tooltiptext">Since I really don't want to be banned off of Scratch, I've decided with the second release of my FNF project not to include it. I know people like the song, but I can't include it without serious takedown implications. Sorry!</span></div>
+		<br><br>
+		<b><a style="text-decoration: none; color:white; padding:0.5em; background-color:#afafaf; margin-top: 3em; margin-bottom:1em; border-radius:0.25em"><span class="material-icons">get_app</span> Download the .sb3 file (coming soon)</a> <a href="https://turbowarp.org/484321587/" style="text-decoration: none; color:white; padding:0.5em; background-color:#0fbd8c; margin-top: 3em; margin-bottom:1em; border-radius:0.25em"><span class="material-icons">sports_esports</span> Edit/download the file in Turbowarp</a></b>
+		<h3><span class="material-icons">inbox</span> Changelog</h3>
+		<li>v11 (3/6/2021) - made the internals a bit more friendly to modding.</li>
+		<li>v10 (2/25/2021) - fixed held notes [finally]. It might lag a little more, but at least it's fixed</li>
+		<li>v9.2 (2/25/2021) - ALRIGHT FINE, I made the timing more lenient lol</li>
+		<li>v9.1 (2/23/2021) - fixed bug where you could get points by spamming the keys on held notes (thanks @friday_night_funkinF)</li>
+		<li>v9 (2/23/2021) - scoring systems! compete with the world to get the highest scores on all difficulties.</li>
+		<li>v8 (or i guess 2.0, 2/22/2021) - reuploaded back to Scratch! hopefully i'm actually not taken down this time. includes some improvements to gameplay, and also finishes off all the songs!</li>
+		<br>
+		<li>v7 (2/11/2021) - overhaul of how notes are counted as "hit" or "missed"! it now relies on the timer directly, so it should be more accurate (in most cases >:( )</li>
+		<li>v6 (2/11/2021) - added [most] of Week 6. I just have the spirit's sprites left, but I'll do that sometime soon. also fixed some bugs, but there's prob more</li>
+		<li>v5.1 - fixed bug where you could die in the menu (whoops, thanks @undertale_guy6394647); if you REALLY wanna experience it enable debug mode</li>
+		<li>v5 (2/10/2021) - Added Week 5 and a quirky warning for Winter Horrorland (v8 update: has been removed)</li>
+		<li>v4 (2/9/2021) - No internal changes, but it's now possible to convert songs from FNF! (See the READ ME sprite inside.)</li>
+		<li>v3 (2/9/2021) - you can now choose between different song difficulties. also i may have bloated this project 3x, whoops</li>
+		<li>v2 (2/9/2021) - added week 2 and 4. isn't that funky. also a lot of animations should be more in time now</li>
+		<li>v1 (2/8/2021) - i did it, i made the game. have fun playing weeks 1 and 3 because i am too lazy to do 2</li>
+	</body>
+</html>

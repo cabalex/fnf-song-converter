@@ -21,7 +21,6 @@
 		h3 {
 			border-radius: 0.25em;
 			background-color: #4d97ff;
-			height: 100%;
 			padding: 1em;
 			color: white;
 		}
@@ -64,9 +63,9 @@
 		<h3 style="background-color: #afafaf"><span class="material-icons">feedback</span> STEP 0 | Getting access to the Scratch project</h3>
 		Since an oddly large amount of people decided to mass report my project (grumble grumble), it's not available directly on Scratch, or at least, not at the moment. There's a couple ways to get access to it:
 		<br></br>
-		<div style="line-height: 3em"><b>RECOMMENDED: <a href="https://mega.nz/file/W8ABAAjQ#BzXlWy99ZYwYIEcx_02CwsQXXcchg14-pWJvH25q3Wk" style="text-decoration: none; color:white; padding:0.5em; background-color:#4d97ff; margin-top: 3em; margin-bottom:1em; border-radius:0.25em"><span class="material-icons">get_app</span> Download the .sb3 file</a> and reupload it to Scratch by clicking File > Load from computer...</b></div>
+		<div style="line-height: 3em"><b>RECOMMENDED: <a href="https://cabalex.github.io/fnf-song-converter/downloads" style="text-decoration: none; color:white; padding:0.5em; background-color:#4d97ff; margin-top: 3em; margin-bottom:1em; border-radius:0.25em"><span class="material-icons">get_app</span> Download the .sb3 file</a> and reupload it to Scratch by clicking File > Load from computer...</b></div>
 		This way, you always get the most up-to-date project, and it comes straight from me.
-		<div style="line-height: 3em"><b>ALTERNATIVE: <a href="https://turbowarp.org/491440657/" style="text-decoration: none; color:white; padding:0.5em; background-color:#0fbd8c; margin-top: 3em; margin-bottom:1em; border-radius:0.25em"><span class="material-icons">sports_esports</span> Edit/download the file in Turbowarp</a>, then reupload it to Scratch in the same way</b></div>
+		<div style="line-height: 3em"><b>ALTERNATIVE: <a href="https://cabalex.github.io/fnf-song-converter/downloads" style="text-decoration: none; color:white; padding:0.5em; background-color:#0fbd8c; margin-top: 3em; margin-bottom:1em; border-radius:0.25em"><span class="material-icons">sports_esports</span> Edit/download the file in Turbowarp</a>, then reupload it to Scratch in the same way</b></div>
 		While it's a bit of a roundabout method, it still works, and it's helpful if you can't download MEGA links. Also, it's the newest version.
 		<div style="line-height: 3em"><b>LAST RESORT (not recommended): <a href="https://scratch.mit.edu/projects/492327181/" style="text-decoration: none; color:white; padding:0.5em; background-color:#ff4d5c; margin-top: 3em; margin-bottom:1em; border-radius:0.25em"><span class="material-icons">dangerous</span> Remix/copy the project from another Scratcher's archive</a></b></div>
 		I don't recommend this, and for pretty obvious reasons- many archives are using outdated or modified versions, actively remove credit from my projects (which I do <i>not</i> support), or just flat out don't credit me properly. You've made it this far- why not get the project straight from the source?
@@ -104,8 +103,9 @@
 		Show the "_songlist" list, and then add your song name to it. <b>Your song must be all lower case and consist of letters/numbers/spaces only! It also must be different from the other songs in the list (don't do what I'm doing obviously), or else you'll have problems.</b> Other characters won't show up.
 		<br><img src="https://i.imgur.com/C7NrmHk.png" width="300px"></img></br>
 		If you hit play, it'll show up in the menu! It's like a real song!
+		<br><b>Note: On v11 and later, your song will have a "CUSTOM" marking next to it. That shows you did everything correctly.</b></br>
 		<br><img src="https://i.imgur.com/HCs8tu5.png" width="500px"></img></br>
-		(I won't explain how to fix the high scores in this guide; it's a bit overly complicated.)
+		(Also on v11 and later, high scores are disabled for custom songs. The current high score system doesn't allow for easy expansion, unfortunately.)
 		<br>Now, the... finnicky part.</br>
 		<br>Go to the "songHandler" sprite, and scroll all the way to the bottom-left. You should be looking at a super long script with a lot of "if currentSongName = ..." blocks. Copy the below script, and change them to your specific song:</br>
 		<br><img src="https://i.imgur.com/rCvrQOe.png" width="700px"></img></br>
@@ -125,7 +125,26 @@
 		<br>
 		<h3><span class="material-icons">verified</span> STEP 5 | Testing your map / you're done!</h3>
 		Start the game, and try your map out! It should be exactly as you've set it up. Share it with the world, and have everyone gasp at your amazingness! You have my approval- you sat through this guide, after all.
-		<br></br>
-		<b>Any questions? As long as they're specific (not "i need help with all of it"), don't hesitate to ask me on my profile!</b>
+		<h3 style="background-color: #afafaf"><span class="material-icons">feedback</span> Troubleshooting</h3>
+		Having problems? Some of these may help:
+		<br><b>Custom Song Errors are only supported on v11 and later. When modding, you may want to update to this version, or later.</b></br>
+		<h4>[v11+] Custom song error: No beatmap loaded</h4>
+		Your beatmap is either completely empty or is not loaded in the songHandler. You probably didn't do step 3 or 4 properly.
+		<h4>[v11+] Custom song error: Beatmap is invalid</h4>
+		Your beatmap isn't a valid beatmap. Did you import the right file into Scratch? Delete your current list, follow step 3 onwards, and, if that didn't help, read the whole guide again.
+		<h4>[v11+] Custom song error: 2P not set</h4>
+		Redo step 4, and follow everything closely. You didn't set a proper 2P character.
+		<h4>[All versions] The stage is blank / one or both of the characters aren't showing up</h4>
+		You set an invalid stage/character, or didn't set one at all. Go back to step 4.
+		<h4>[All versions] No audio is being played</h4>
+		You either didn't set up your audio correctly, or didn't load any audio files at all. Check the second half of step 4.
+		<h4>[< v11] My song isn't loading properly / random notes are being played</h4>
+		This is probably because you didn't load your beatmap. See step 4.
+		<h4>[< v11] I set a stage, but the background is still blank</h4>
+		This is a problem plaguing pre-v11 versions of my project. Either:
+		<li>Update to v11</li>
+		<li>Go to the selected stage's sprite and add an exception for your song (search for "if currSongName == ___")</li>
+		<br>
+		<b>Any further questions? As long as they're specific (not "i need help with all of it"), don't hesitate to ask me on my profile!</b>
 	</body>
 </html>
