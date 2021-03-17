@@ -54,14 +54,26 @@
 			</ul>
 		</div>
 		<br></br>
-		<h2>Friday Night Funkin' Modding Guides</h2>
-		<h5>Stumble your way through my janky code no more!</h5>
-		Select a guide.
-		<a href="basic/index.html" style="text-decoration: none;"><h3 style="background-color: #0fbd8c"><span class="material-icons">library_music</span> 1 | Making/Importing songs</h3></a>
-		<a style="text-decoration: none;"><h3 style="background-color: #afafaf"><span class="material-icons">person_add</span> 2 | Adding new characters (coming soon)</h3></a>
-		<a style="text-decoration: none;"><h3 style="background-color: #afafaf"><span class="material-icons">crop_original</span> 3 | Adding new environments (coming soon)</h3></a>
-		<a style="text-decoration: none;"><h3 style="background-color: #afafaf"><span class="material-icons">flight_takeoff</span> 4 | Going beyond (coming soon)</h3></a>
+		<h3 style="background-color: #ff4d5c"><span class="material-icons">report</span> Troubleshooting</h3>
+		Having problems? Some of these may help:
+		<br><b>Custom Song Errors are only supported on v11 and later. When modding, you may want to update to this version, or later.</b></br>
+		<h4>[v11+] Custom song error: No beatmap loaded</h4>
+		Your beatmap is either completely empty or is not loaded in the songHandler. You probably didn't do step 3 or 4 properly.
+		<h4>[v11+] Custom song error: Beatmap is invalid</h4>
+		Your beatmap isn't a valid beatmap. Did you import the right file into Scratch? Delete your current list, follow step 3 onwards, and, if that didn't help, read the whole guide again.
+		<h4>[v11+] Custom song error: 2P not set</h4>
+		Redo step 4, and follow everything closely. You didn't set a proper 2P character.
+		<h4>[All versions] The stage is blank / one or both of the characters aren't showing up</h4>
+		You set an invalid stage/character, or didn't set one at all. Go back to step 4.
+		<h4>[All versions] No audio is being played</h4>
+		You either didn't set up your audio correctly, or didn't load any audio files at all. Check the second half of step 4.
+		<h4>[< v11] My song isn't loading properly / random notes are being played</h4>
+		This is probably because you didn't load your beatmap. See step 4.
+		<h4>[< v11] I set a stage, but the background is still blank</h4>
+		This is a problem plaguing pre-v11 versions of my project. Either:
+		<li>Update to v11</li>
+		<li>Go to the selected stage's sprite and add an exception for your song (search for "if currSongName == ___")</li>
 		<br>
-		<a href="troubleshooting/index.html" style="text-decoration: none;"><h3 style="background-color: #ff4d5c"><span class="material-icons">report</span> Troubleshooting</h3></a>
+		<b>Any further questions? As long as they're specific (not "i need help with all of it"), don't hesitate to ask me on my profile!</b>
 	</body>
 </html>
