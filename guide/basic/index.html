@@ -57,13 +57,13 @@
 		<h2>So you want to make a song, huh?</h2>
 		You'll need:
 		<ul>
-			<li>The Scratch project (see step 0)</li>
+			<li>The Scratch project (see <a href="https://scratch.mit.edu/projects/519325355/">here</a>)</li>
 			<li>A song beatmap (or see step 1 for how to make your own)</li>
 			<li>A song MP3 (duh)</li>
 			<li>[optional] A vocal track MP3</li>
 			<li>Some time</li>
 		</ul>
-		<h3 style="background-color: #afafaf"><span class="material-icons">feedback</span> STEP 0 | Getting access to the Scratch project</h3>
+		<!--<h3 style="background-color: #afafaf"><span class="material-icons">feedback</span> STEP 0 | Getting access to the Scratch project</h3>
 		Since an oddly large amount of people decided to mass report my project (grumble grumble), it's not available directly on Scratch, or at least, not at the moment. There's a couple ways to get access to it:
 		<br></br>
 		<div style="line-height: 3em"><b>RECOMMENDED: <a href="https://cabalex.github.io/fnf-song-converter/downloads" style="text-decoration: none; color:white; padding:0.5em; background-color:#4d97ff; margin-top: 3em; margin-bottom:1em; border-radius:0.25em"><span class="material-icons">get_app</span> Download the .sb3 file</a> and reupload it to Scratch by clicking File > Load from computer...</b></div>
@@ -72,7 +72,7 @@
 		While it's a bit of a roundabout method, it still works, and it's helpful if you can't download from the other link. Also, it's the newest version.
 		<div style="line-height: 3em"><b>LAST RESORT (not recommended): <a href="https://scratch.mit.edu/projects/499634772/" style="text-decoration: none; color:white; padding:0.5em; background-color:#ff4d5c; margin-top: 3em; margin-bottom:1em; border-radius:0.25em"><span class="material-icons">dangerous</span> Remix/copy the project from another Scratcher's archive</a></b></div>
 		I don't recommend this, and for pretty obvious reasons- many archives are using outdated or modified versions, actively remove credit from my projects (which I do <i>not</i> support), or just flat out don't credit me properly. You've made it this far- why not get the project straight from the source?
-		<br>If you <i>absolutely must</i> stay on Scratch, you can remix/use the project I linked above. Fair warning though, these projects won't get updates and new features, and I cannot guarantee the quality.</br>
+		<br>If you <i>absolutely must</i> stay on Scratch, you can remix/use the project I linked above. Fair warning though, these projects won't get updates and new features, and I cannot guarantee the quality.</br>-->
 		<h3><span class="material-icons">build</span> STEP 1 | Making the actual song map</h3>
 		<b>If you are importing a song map from somewhere else and already have the JSON file, skip this step.</b>
 		<br></br>
@@ -103,12 +103,10 @@
 		If everything worked out, you should have a respectable looking beatmap in the game! Good job.
 		<br><img src="https://i.imgur.com/53Bc1eo.png" width="300px"></img></br>
 		<h3><span class="material-icons">mode_edit</span> STEP 4 | Configuring the rest</h3>
-		Show the "_songlist" list, and then add your song name to it. <b>Your song must be all lower case and consist of letters/numbers/spaces only! It also must be different from the other songs in the list (don't do what I'm doing obviously), or else you'll have problems.</b> Other characters won't show up.
-		<br><img src="https://i.imgur.com/C7NrmHk.png" width="300px"></img></br>
+		Show the "_songlist" list, and then add your song name to it. <b>Your song must be all lower case and consist of letters/numbers/spaces only! It also must be different from the other songs in the list, or else you'll have problems.</b> Other characters won't show up.
+		<br><img src="https://i.imgur.com/WzSAR6W.png" width="300px"></img></br>
 		If you hit play, it'll show up in the menu! It's like a real song!
-		<br><b>Note: On v11 and later, your song will have a "CUSTOM" marking next to it. That shows you did everything correctly.</b></br>
-		<br><img src="https://i.imgur.com/HCs8tu5.png" width="500px"></img></br>
-		(Also on v11 and later, high scores are disabled for custom songs. The current high score system doesn't allow for easy expansion, unfortunately.)
+		<br><img src="https://i.imgur.com/4ap9E2I.png" width="500px"></img></br>
 		<br>Now, the... finnicky part.</br>
 		<br>Go to the "songHandler" sprite, and scroll all the way to the bottom-left. You should be looking at a super long script with a lot of "if currentSongName = ..." blocks. Copy the below script, and change them to your specific song:</br>
 		<br><img src="https://i.imgur.com/rCvrQOe.png" width="700px"></img></br>
@@ -117,9 +115,9 @@
 			<li><b>song bpm</b> - the BPM of your song, shown in the converter (I said to remember it!)</li>
 			<li><b>multiplier</b> - the note speed. <u>It's not what you'd think!</u> Lower is faster, while higher is slower. I find that a range of 9-12 is best for most songs, but experiment and see which fits your song best.</li>
 			<li><b>beats before ending</b> - how many beats are between the last note in the beat map and the song actually being over. For example, if the last note is about 4 beats before the end of the song, you'd set this to 4.</li>
-			<li><div class="code"><b>1P</b> - your player character. Possible values are <a>bf, bf_pixel</a>. Note that setting 1P to <a>bf_pixel</a> will also set the notes to be pixellated as well.</div></li>
-			<li><div class="code"><b>2P</b> - the opponent. Possible values are <a>gf, dad, spookykids, pico, mom, momdad, monster_christmas</a> (OLD VERSION ONLY)<a>, senpai_1, senpai_2, senpai_3</a></div></li>
-			<li><div class="code"><b>currSongStage</b> - the stage your song will be performed on. Possible values are <a>stage, spookystage, picostage, momcarstage, christmasstage, schoolstage</a></div>
+			<li><div class="code"><b>1P</b> - your player character. Possible values are <a>bf, bf_pixel, bf_holding_gf</a>. Note that setting 1P to <a>bf_pixel</a> will also set the notes to be pixellated as well.</div></li>
+			<li><div class="code"><b>2P</b> - the opponent. Possible values are <a>gf, dad, spookykids, pico, mom, momdad, monster_christmas</a> (OLD VERSION ONLY)<a>, senpai_1, senpai_2, senpai_3, tankman</a></div></li>
+			<li><div class="code"><b>currSongStage</b> - the stage your song will be performed on. Possible values are <a>stage, spookystage, picostage, momcarstage, christmasstage, schoolstage, newgroundsstage</a></div>
 			<b>Note:</b> Although it is fixed on newer versions of the project, many old versions do not check for the currSongStage properly; you may need to go to the individual stage's sprite and add an exception manually (search for the script that says something along the lines of "if currSongName == ...".</li>
 		</ul>
 		That's mostly the complicated parts over with! All you just have to do is import your songs. Go to the Sounds tab of the songHandler sprite and import your song (Note: if you have a vocal track, do not import it here!). Then, to the upper left of the script you just made, you'll find the Song loader script. Add onto it like so (of course, replacing your song name and your song music):
@@ -128,6 +126,7 @@
 		<br>
 		<h3><span class="material-icons">verified</span> STEP 5 | Testing your map / you're done!</h3>
 		Start the game, and try your map out! It should be exactly as you've set it up. Share it with the world, and have everyone gasp at your amazingness! You have my approval- you sat through this guide, after all.
+		<br>Note that this is the basics; I didn't go over how to make multiple difficulties, or other complex stuff, but this should get you started in the world of modding a Scratch recreation of the game. Good luck!</br>
 		<a href="https://cabalex.github.io/fnf-song-converter/guide/troubleshooting/index.html" style="text-decoration: none;"><h3 style="background-color: #ff4d5c"><span class="material-icons">report</span> Troubleshooting</h3></a>
 	</body>
 </html>
