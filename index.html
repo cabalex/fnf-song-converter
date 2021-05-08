@@ -24,8 +24,39 @@
 		#heading:hover {
 			background-color: #0068f9
 		}
+		#fileName {
+			width: 100%;
+			text-align: center;
+			background-color: #fafafa;
+			padding: 1em 1.25em;
+			margin: .5em;
+			border: 2px solid rgba(0, 0, 0, 0.2);
+			border-radius: 0.25rem;
+			transition: border 0.2s, filter 0.2s, margin 0.2s;
+			cursor: pointer;
+		}
+		#fileName:hover, #download:hover {
+			border: 4px solid rgba(0, 0, 0, 0.2);
+			filter: brightness(85%);
+			margin: calc(0.5em-4px);
+		}
+		#download {
+			display: block;
+			text-align: center;
+			border: 4px solid #0fbd8c; 
+			transition: border 0.2s, filter 0.2s, margin 0.2s ease-in-out;
+			font-weight: bold;
+			background-color: #0fbd8c;
+			color: white;
+			padding: 1em 1.25em;
+			border: 0;
+			border-radius: 0.25rem;
+			margin: 0.5em;
+			text-decoration: none
+		}
 	</style>
 	<body>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<div id="topBar" style="background-color: #4d97ff; width: 100%; height: 50px; align-items: center; display: flex; flex-direction: row; position:fixed; top: 0; left: 0">
 			<ul style="list-style: none; display: flex; flex-direction: row; align-items: center; padding-left:0">
 				<li class="heading" style="padding: 1em">
@@ -68,12 +99,12 @@
 			Your beat map may be invalid, or you might just not be using a modern enough browser. Try opening the web console (CTRL+SHIFT+J on Chrome), and sending the error (and the beat map you tried to convert) to me.
 		</div>
 		<form>
-		  	<div style="width: 50%; flex-direction: row; justify-content: left; flex-wrap: wrap; display: flex; background-color: rgba(77, 151, 255, 0.25); align-items: center; border-radius: 0.25rem; padding: 0 0.5em">
-			  	<p id="fileName" onclick="getFile()" style="width: 100%; text-align: center; background-color: #fafafa; padding: 1em 1.25em; margin: .5em; border: 2px solid rgba(0, 0, 0, 0.2); border-radius: 0.25rem">Upload your file...</p>
+		  	<div style="width: 90%; max-width: 500px; flex-direction: row; justify-content: left; flex-wrap: wrap; display: flex; background-color: rgba(77, 151, 255, 0.25); align-items: center; border-radius: 0.25rem; padding: 0 0.5em">
+			  	<p id="fileName" onclick="getFile()" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">Upload your file...</p>
 			</div>
 		  	<div style='height: 0px;width: 0px; overflow:hidden;'><input type="file" accept=".json", id="fileInput", onchange="fileLoad(event)"></div>
 		</form>
-		<div id="output" style="width: 50%; flex-direction: row; justify-content: left; flex-wrap: wrap; display: flex; background-color: rgba(77, 151, 255, 0.25); align-items: center; border-radius: 0.25rem; padding:0.5em; margin:0.5em 0; display: none;"></div>
+		<div id="output" style="width: 90%; max-width: 500px; flex-direction: row; justify-content: left; flex-wrap: wrap; display: flex; background-color: rgba(77, 151, 255, 0.25); align-items: center; border-radius: 0.25rem; padding:0.5em; margin:0.5em 0; display: none;"></div>
 		<div style="height:5em"></div>
 		<script src="convert.js"></script>
 		<noscript>I'm not sure how you expect this to work without JS lol</noscript>

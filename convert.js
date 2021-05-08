@@ -6,18 +6,49 @@ function getFile() {
   document.getElementById("fileInput").click();
 }
 
+function dragOverHandler(ev) {
+  // Prevent default behavior (Prevent file from being opened)
+  ev.preventDefault();
+}
+
+function dropHandler(ev) {
+    // Prevent default behavior (Prevent file from being opened)
+    ev.preventDefault();
+    var files = [];
+    if (ev.dataTransfer.items) {
+        // Use DataTransferItemList interface to access the file(s)
+        for (var i = 0; i < ev.dataTransfer.items.length; i++) {
+            // If dropped items aren't files, reject them
+            if (ev.dataTransfer.items[i].kind === 'file') {
+                files.push(ev.dataTransfer.items[i].getAsFile());
+            };
+        };
+    } else {
+        // Use DataTransfer interface to access the file(s)
+        for (var i = 0; i < ev.dataTransfer.files.length; i++) {
+        files.push(ev.dataTransfer.files[i]);
+        };
+    };
+    if (files.length > 0) {
+        loadFile(files[0]);
+    };
+}
+
 function download() {
     const img1 = document.createElement('img');
     const img2 = document.createElement('img');
     img1.src = "https://i.imgur.com/ixCIQvH.png";
     img2.src = "https://i.imgur.com/jye1Urg.png";
     outputArea.appendChild(img1);
-    outputArea.appendChild(img2)
+    outputArea.appendChild(img2);
 }
 
 inputElement.onchange = (e) => {
-  const file = inputElement.files[0];
-  if (!file) return
+  loadFile(inputElement.files[0]);
+}
+
+function loadFile(file) {
+  if (!file) return;
   if (!file.name.endsWith('.json')) {
     alert("Enter a JSON file, silly!\nClick 'Save' in the beatmap editor and use that file.");
     return
@@ -32,7 +63,7 @@ inputElement.onchange = (e) => {
     outputArea.innerHTML = '';
     const outputTextInitial = document.createElement("h3");
     outputTextInitial.style = "text-align: center; display: block;"
-    outputTextInitial.innerHTML = `${json.song.song} | ${json.song.bpm} BPM | SPEED ${json.song.speed.toFixed(2)}`
+    outputTextInitial.innerHTML = `${json.song.song} | ${json.song.bpm} BPM | SPEED ${parseFloat(json.song.speed).toFixed(2)}`
     outputArea.appendChild(outputTextInitial);
     const bpm = json.song.bpm
     var scratchList = [];
@@ -75,7 +106,6 @@ inputElement.onchange = (e) => {
     link.download = file.name.split(".")[0] + ".txt";
     link.id = "download";
     link.addEventListener('click', function(){download()}, false);
-    link.style = "display: block; text-align: center; font-weight: bold; background-color: #0fbd8c; color: white; padding: 1em 1.25em; border: 0; border-radius: 0.25rem; margin: 0.5em; text-decoration: none";
     outputArea.appendChild(link);
   }
   reader.onerror = (e) => {
