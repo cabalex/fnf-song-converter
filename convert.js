@@ -67,31 +67,44 @@ function loadFile(file) {
     outputArea.appendChild(outputTextInitial);
     const bpm = json.song.bpm
     var scratchList = [];
+    var notesList = {};
+    var sectionList = {};
     var beginsection_timing = 0;
     for (i = 0; i < json.song.notes.length; i++) {
-        section = json.song.notes[i];
+        // sections
+        var section = json.song.notes[i];
+        var assignment = [4, 5, 6, 7, 0, 1, 2, 3];
         if (section.mustHitSection == false) {
-            var assignment = [0, 1, 2, 3, 4, 5, 6, 7];
-            scratchList.push(`#0-${beginsection_timing}`);
+            assignment = [0, 1, 2, 3, 4, 5, 6, 7];
+            sectionList[beginsection_timing.toString()] = "0" 
         } else {
-            var assignment = [4, 5, 6, 7, 0, 1, 2, 3];
-            scratchList.push(`#1-${beginsection_timing}`);
+            sectionList[beginsection_timing.toString()] = "1"
         }
         beginsection_timing += ((60 / bpm) * 4) / 16 * section.lengthInSteps * 1000;
+        // notes
         var notelist = [];
         for (x = 0; x < section.sectionNotes.length; x++) {
             var note = section.sectionNotes[x];
             if (note[0].toString().split(".").length == 1) {
-                notelist.push(`?${note[0].toString().padStart(7, '0')}_${assignment[note[1]]}_${note[2]}`);
+                notesList[note[0].toString().padStart(7, '0')] = `${assignment[note[1]]}_${note[2]}`;
             } else {
-                notelist.push(`?${note[0].toFixed(4).padStart(12, '0')}_${assignment[note[1]]}_${note[2]}`);
+                notesList[note[0].toFixed(4).padStart(12, '0')] = `${assignment[note[1]]}_${note[2]}`;
             }
         }
-        notelist.sort();
-        for (y = 0; y < notelist.length; y++) {
-            scratchList.push(notelist[y]);
+    }
+    lookupArray = Object.keys(notesList);
+    lookupArray = lookupArray.concat(Object.keys(sectionList))
+    lookupArray = [...new Set(lookupArray)]; // remove duplicates
+    lookupArray.sort((a,b) => Number(a)-Number(b)) // sort
+    for (var i = 0; i < lookupArray.length; i++) {
+        if (Object.keys(sectionList).includes(lookupArray[i])) {
+            scratchList.push(`#${sectionList[lookupArray[i]]}-${lookupArray[i]}`)
+        }
+        if (Object.keys(notesList).includes(lookupArray[i])) {
+            scratchList.push(`?${lookupArray[i]}_${notesList[lookupArray[i]]}`)
         }
     }
+    
     var outputString = scratchList.join("\n");
     const blob = new Blob([outputString], {type : 'text/plain'});
     const a = document.createElement('a');
