@@ -86,9 +86,17 @@ function loadFile(file) {
         for (x = 0; x < section.sectionNotes.length; x++) {
             var note = section.sectionNotes[x];
             if (note[0].toString().split(".").length == 1) {
-                notesList[note[0].toString().padStart(7, '0')] = `${assignment[note[1]]}_${note[2]}`;
+                if (!notesList[note[0].toString().padStart(7, '0')]) {
+                    notesList[note[0].toString().padStart(7, '0')] = [`${assignment[note[1]]}_${note[2]}`];
+                } else {
+                    notesList[note[0].toString().padStart(7, '0')].push(`${assignment[note[1]]}_${note[2]}`);
+                }
             } else {
-                notesList[note[0].toFixed(4).padStart(12, '0')] = `${assignment[note[1]]}_${note[2]}`;
+                if (!notesList[note[0].toFixed(4).padStart(12, '0')]) {
+                    notesList[note[0].toFixed(4).padStart(12, '0')] = [`${assignment[note[1]]}_${note[2]}`];
+                } else {
+                    notesList[note[0].toFixed(4).padStart(12, '0')].push(`${assignment[note[1]]}_${note[2]}`);
+                }
             }
         }
     }
@@ -101,7 +109,9 @@ function loadFile(file) {
             scratchList.push(`#${sectionList[lookupArray[i]]}-${lookupArray[i]}`)
         }
         if (Object.keys(notesList).includes(lookupArray[i])) {
-            scratchList.push(`?${lookupArray[i]}_${notesList[lookupArray[i]]}`)
+            for (var x = 0; x < notesList[lookupArray[i]].length; x++) {
+                scratchList.push(`?${lookupArray[i]}_${notesList[lookupArray[i]][x]}`)
+            }
         }
     }
     
