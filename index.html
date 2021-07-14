@@ -68,20 +68,31 @@
 				<li class="heading" style="padding: 1em">
 					<a style="color: #ffffff; text-decoration: none" href="https://scratch.mit.edu/projects/519325355/"><b>FNF Scratch song converter</b></a>
 				</li>
-				<a style="color: #ffffff; text-decoration: none" href="https://cabalex.github.io/fnf-song-converter/guide"><li class="heading" style="padding: 1em; background-color: #0068f9" onmouseover="this.style.background='#0056d0';" onmouseout="this.style.background='#0068f9';">
+				<a style="color: #ffffff; text-decoration: none" href="guide/"><li class="heading" style="padding: 1em; background-color: #0068f9" onmouseover="this.style.background='#0056d0';" onmouseout="this.style.background='#0068f9';">
 					<b>Wanna make a song? Start here!</b>
 				</li></a>
-				<a style="color: #ffffff; text-decoration: none" href="https://cabalex.github.io/fnf-song-converter/downloads"><li class="heading" style="padding: 1em; background-color: #4d97ff" onmouseover="this.style.background='#0068f9';" onmouseout="this.style.background='#4d97ff';">
+				<a style="color: #ffffff; text-decoration: none" href="downloads/"><li class="heading" style="padding: 1em; background-color: #4d97ff" onmouseover="this.style.background='#0068f9';" onmouseout="this.style.background='#4d97ff';">
 					<b>Downloads</b>
 				</li></a>
 		</div>
-		<div id="warningNotice" style="background-color: #ff4d5c; padding: 1em; margin-top:4em; color: white; left:0; border-radius:0.25em; display: none">
-			Notice: My official Friday Night Funkin' Scratch project will no longer recieve updates or improvements due to circumstances beyond my control.
-			<br></br>
-			<a href="takedown-info/index.html" style="text-decoration: none; color:black; padding:0.5em; background-color:white; margin-top: 3em; margin-bottom:1em; border-radius:0.25em">Read more</a>
+		<div id="warningNotice" style="background-color: #ff4d5c; padding: 1em; margin-top:4em; color: white; left:0; border-radius:0.25em;">
+			<b>Funk on!</b> My project will probably no longer recieve substantial updates, but everything will continue to work as normal.
 		</div>
 		<br>
-		<br>
+		<form>
+			<div style="width: 90%; padding-bottom: 20px; max-width: 500px; flex-direction: row; justify-content: left; flex-wrap: wrap; display: flex; background-color: rgba(77, 151, 255, 0.25); align-items: center; border-radius: 0.25rem; padding: 0 0.5em">
+				<p>
+					Expanded note handling (e.g. Tricky Mod Halo notes): <select name="noteHandlingSelector" id="noteHandlingSelector">
+						<option value="ignore">Ignore unexpected notes</option>
+						<option value="modulo">Limit to default range (0-7)</option>
+						<option value="expanded">Allow all notes (EXPERIMENTAL)</option>
+				</select></p>
+				<p id="fileName" onclick="getFile()" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">Upload your file...</p>
+				</div>
+		  </div>
+			<div style='height: 0px;width: 0px; overflow:hidden;'><input type="file" accept=".json", id="fileInput", onchange="fileLoad(event)"></div>
+		</form>
+		<div id="output" style="width: 90%; max-width: 500px; flex-direction: row; justify-content: left; flex-wrap: wrap; display: flex; background-color: rgba(77, 151, 255, 0.25); align-items: center; border-radius: 0.25rem; padding:0.5em; margin:0.5em 0; display: none;"></div>
 		<div style="padding-top: 2em; padding-bottom: 2em; padding-left: 1em; padding-right: 1em">
 			Convert your songs made in the Friday Night Funkin' Editor to song maps that the Scratch program can read. Nothing is sent or stored on any server- it's just Javascript and it runs directly in your (modern-ish) browser.
 			<h3>Where do I get my JSON files?</h3>
@@ -100,13 +111,6 @@
 			<h3>Why isn't this a project on Scratch? I can't access this site on my computer/school owned device.</h3>
 			I can't really make an easy file converter in Scratch- it'd just be a mess. This way was just a lot easier, and allows me to add a bunch of other stuff too, like guides, and have it be all in one place. It's also easier to get errors troubleshooted and fixed here- just <a href="https://github.com/cabalex/fnf-song-converter/issues">open an issue</a> (bugs ONLY, no help requests).
 		</div>
-		<form>
-		  	<div style="width: 90%; max-width: 500px; flex-direction: row; justify-content: left; flex-wrap: wrap; display: flex; background-color: rgba(77, 151, 255, 0.25); align-items: center; border-radius: 0.25rem; padding: 0 0.5em">
-			  	<p id="fileName" onclick="getFile()" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">Upload your file...</p>
-			</div>
-		  	<div style='height: 0px;width: 0px; overflow:hidden;'><input type="file" accept=".json", id="fileInput", onchange="fileLoad(event)"></div>
-		</form>
-		<div id="output" style="width: 90%; max-width: 500px; flex-direction: row; justify-content: left; flex-wrap: wrap; display: flex; background-color: rgba(77, 151, 255, 0.25); align-items: center; border-radius: 0.25rem; padding:0.5em; margin:0.5em 0; display: none;"></div>
 		<div style="height:5em"></div>
 		<script src="convert.js"></script>
 		<noscript>I'm not sure how you expect this to work without JS lol</noscript>

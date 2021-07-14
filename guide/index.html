@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>Funkin' Song Converter</title>
+		<meta http-equiv="refresh" content="3; URL=https://github.com/cabalex/fnf-song-converter/wiki" />
 	</head>
 	<style>
 		body {
@@ -54,7 +55,33 @@
 				</li>
 			</ul>
 		</div>
-		<br></br>
+		<div style="padding-top: 40px; margin-left: 10px;">
+			<h2>We've moved to a wiki on GitHub; you'll be redirected in a few seconds...</h2>
+			<p><i>Or if you're lazy like me, you can <a href="https://github.com/cabalex/fnf-song-converter/wiki">click here</a>...</i></p>
+			<br>
+			<i id="introText"></i>
+		</div>
+		<script type="text/javascript">
+			var elem = document.getElementById('introText')
+			introTexts = [
+				"Wanna make your song not custom? There's a hidden list in the Menus sprite that stores all non-custom songs.",
+				"Press 1 to refresh the Free Play High Scores, and if you changed the dev name, you can reset Cloud High Scores with it!",
+				"The IntroText list in the Menus sprite stores all intro text in two-line pairs!",
+				"Wanna die fast? Press R in game!",
+				"Downscroll used to be a hidden toggle hotkey before the settings menu was made.",
+				"The project was taken down twice for being inappropriate for Scratch!",
+				"Monster was originally in the game, before having to be removed due to Scratch guidelines. You can still find it in old remixes of the project!",
+				"You can find downloads to the latest version of the project on the Downloads page.",
+				"A Friday Night Funkin' Lite version was originally released, but was unshared due to the performance benefits being minimal.",
+				"I do more work than just Friday Night Funkin'! Check my GitHub.",
+				"The developer ran out of ideas for text to put here. How was your day?",
+				"Shoutouts to Tom Fulp!",
+				"Play the Newgrounds version and support the original game's developers!",
+				"Funk on!"
+			]
+			elem.innerHTML = introTexts[Math.floor(Math.random()*introTexts.length)]
+		</script>
+		<!--
 		<h2>Friday Night Funkin' Modding Guides</h2>
 		<h5>Stumble your way through my janky code no more!</h5>
 		Select a guide.
@@ -63,6 +90,6 @@
 		<a style="text-decoration: none;"><h3 style="background-color: #afafaf"><span class="material-icons">person_add</span> 3 | Modding BF and GF (coming soon)</h3></a>
 		<a style="text-decoration: none;"><h3 style="background-color: #afafaf"><span class="material-icons">crop_original</span> 4 | Adding new environments (coming soon)</h3></a>
 		<br>
-		<a href="troubleshooting/index.html" style="text-decoration: none;"><h3 style="background-color: #ff4d5c"><span class="material-icons">report</span> Troubleshooting</h3></a>
+		<a href="troubleshooting/index.html" style="text-decoration: none;"><h3 style="background-color: #ff4d5c"><span class="material-icons">report</span> Troubleshooting</h3></a>-->
 	</body>
 </html>

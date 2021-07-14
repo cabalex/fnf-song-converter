@@ -35,12 +35,10 @@ function dropHandler(ev) {
 }
 
 function download() {
-    const img1 = document.createElement('img');
-    const img2 = document.createElement('img');
-    img1.src = "https://i.imgur.com/ixCIQvH.png";
-    img2.src = "https://i.imgur.com/jye1Urg.png";
-    outputArea.appendChild(img1);
-    outputArea.appendChild(img2);
+    const link = document.createElement('a');
+    link.href = "https://github.com/cabalex/fnf-song-converter/wiki/Making-and-Importing-New-Songs#step-3--importing-your-song-map"
+    link.text = "Not sure where to go next? Click here!"
+    outputArea.appendChild(link);
 }
 
 inputElement.onchange = (e) => {
@@ -56,7 +54,11 @@ function loadFile(file) {
   fileNameArea.innerHTML = file.name;
   const reader = new FileReader();
   reader.onload = (e) => {
+    // Handle dropdown - "modulo", "ignore", "expanded"
+    noteHandlingOption = document.getElementById("noteHandlingSelector").value
+    
     // e.target points to the reader
+    
     var loadableFile = e.target.result.replace(/^\0+/, '').replace(/\0+$/, ''); // my data has weird 0x00 bytes at the end, so im lazy and doing this
     var json = JSON.parse(loadableFile);
     var outputString = '';
@@ -70,6 +72,13 @@ function loadFile(file) {
     var notesList = {};
     var sectionList = {};
     var beginsection_timing = 0;
+    function addToNotesList(timing, value) {
+        if (!notesList[timing]) {
+            notesList[timing] = [value];
+        } else {
+            notesList[timing].push(value);
+        }
+    }
     for (i = 0; i < json.song.notes.length; i++) {
         // sections
         var section = json.song.notes[i];
@@ -82,21 +91,23 @@ function loadFile(file) {
         }
         beginsection_timing += ((60 / bpm) * 4) / 16 * section.lengthInSteps * 1000;
         // notes
-        var notelist = [];
         for (x = 0; x < section.sectionNotes.length; x++) {
             var note = section.sectionNotes[x];
+            var timing = note[0].toFixed(4).padStart(12, '0')
             if (note[0].toString().split(".").length == 1) {
-                if (!notesList[note[0].toString().padStart(7, '0')]) {
-                    notesList[note[0].toString().padStart(7, '0')] = [`${assignment[note[1]]}_${note[2]}`];
-                } else {
-                    notesList[note[0].toString().padStart(7, '0')].push(`${assignment[note[1]]}_${note[2]}`);
-                }
-            } else {
-                if (!notesList[note[0].toFixed(4).padStart(12, '0')]) {
-                    notesList[note[0].toFixed(4).padStart(12, '0')] = [`${assignment[note[1]]}_${note[2]}`];
-                } else {
-                    notesList[note[0].toFixed(4).padStart(12, '0')].push(`${assignment[note[1]]}_${note[2]}`);
-                }
+                timing = note[0].toString().padStart(7, '0')
+            }
+            switch(noteHandlingOption) {
+                case "modulo":
+                    addToNotesList(timing, `${assignment[note[1]%8]}_${note[2]}`);
+                    break;
+                case "ignore":
+                    if (note[1] < 8) {
+                        addToNotesList(timing, `${assignment[note[1]]}_${note[2]}`);
+                    }
+                    break;
+                case "expanded":
+                    addToNotesList(timing, `${Math.floor(note[1]/8)*8 + assignment[note[1]%8]}_${note[2]}`);
             }
         }
     }
