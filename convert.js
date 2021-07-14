@@ -106,6 +106,13 @@ function loadFile(file) {
                         addToNotesList(timing, `${assignment[note[1]]}_${note[2]}`);
                     }
                     break;
+                case "expanded_unmodified":
+                    if (note[1] < 8) {
+                        addToNotesList(timing, `${assignment[note[1]]}_${note[2]}`);
+                    } else {
+                        addToNotesList(timing, `${note[1]}_${note[2]}`);
+                    }
+                    break;
                 case "expanded":
                     addToNotesList(timing, `${Math.floor(note[1]/8)*8 + assignment[note[1]%8]}_${note[2]}`);
             }
