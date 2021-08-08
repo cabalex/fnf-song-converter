@@ -87,7 +87,7 @@
 						<option value="modulo">Limit to default range (0-7)</option>
 						<option value="expanded">Allow all notes (EXPERIMENTAL)</option>
 						<option value="expanded_unmodified">Allow all notes without modifications (EXPERIMENTAL)</option>
-				</select></p>
+				</select><br><a style="font-size: 12px; color: blue; text-decoration: none;" href="https://github.com/cabalex/fnf-song-converter/wiki/Making-and-Importing-New-Songs#step-2---converting-your-song-map">What does this mean?</a></p>
 				<p id="fileName" onclick="getFile()" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">Upload your file...</p>
 				</div>
 		  </div>
@@ -96,12 +96,12 @@
 		<div id="output" style="width: 90%; max-width: 500px; flex-direction: row; justify-content: left; flex-wrap: wrap; display: flex; background-color: rgba(77, 151, 255, 0.25); align-items: center; border-radius: 0.25rem; padding:0.5em; margin:0.5em 0; display: none;"></div>
 		<div style="padding-top: 2em; padding-bottom: 2em; padding-left: 1em; padding-right: 1em">
 			Convert your songs made in the Friday Night Funkin' Editor to song maps that the Scratch program can read. Nothing is sent or stored on any server- it's just Javascript and it runs directly in your (modern-ish) browser.
+			<h2><a style="color: blue; text-decoration: none" href="https://cabalex.github.io/fnf-song-converter/guide/">See the guide here for more info</a></h2>
 			<h3>Where do I get my JSON files?</h3>
 			Your JSON files are created in the official <a href="https://ninja-muffin24.itch.io/funkin">Friday Night Funkin'</a> beat map editor. When you load up the game, choose a song. Then, in that song, press 7. You'll then see the editor! <a href="https://www.youtube.com/watch?v=BstyEfnXdKM">There's plenty of guides on YouTube about how to use it</a>, so I won't talk about it here.
 			<br>When you're done with your song's beat map, go to the third tab and click "Save...". It should download a JSON to your computer. There it is!</br>
 			<h3>What do I do with the TXT file I just downloaded?</h3>
-			You can use it in <a href="https://scratch.mit.edu/projects/491440657/">the project</a>, of course! Enter the project and create a new list. Then, right click the list in the stage and click "Import...". Then you can follow the guide in the project's READ ME to finish.
-			<br>More comprehensive documentation coming soon!</br>
+			You can use it in <a href="https://scratch.mit.edu/projects/491440657/">the project</a>, of course! <a href="https://github.com/cabalex/fnf-song-converter/wiki/Making-and-Importing-New-Songs">See here for more info</a>.
 			<h3>What does the song speed do? The Scratch program doesn't ask for it.</h3>
 			The song speed parameter is related to the "multiplier" parameter that is set in the Scratch project, but they are definitely not interchangable. The multiplier variable also goes from high to low, instead of low to high. Play around with the variable settings and see what speed fits your song!
 			<br>It can be used as a reference to set the multiplier value, though.</br>
