@@ -77,9 +77,23 @@
 				"The developer ran out of ideas for text to put here. How was your day?",
 				"Shoutouts to Tom Fulp!",
 				"Play the Newgrounds version and support the original game's developers!",
-				"Funk on!"
+				"Funk on!",
+				"You can also have queries in this url (e.g. https://cabalex.github.io/fnf-song-converter/guide?customsongs) to jump to your page quicker."
 			]
 			elem.innerHTML = introTexts[Math.floor(Math.random()*introTexts.length)]
+			// Detect queries (shortlinks to different guides)
+			if (location.search.includes("customsongs")) {
+				location.href = "https://github.com/cabalex/fnf-song-converter/wiki/Making-and-Importing-New-Songs"
+			}
+			if (location.search.includes("customcharacters")) {
+				location.href = "https://github.com/cabalex/fnf-song-converter/wiki/Making-New-Characters"
+			}
+			if (location.search.includes("custombf")) {
+				location.href = "https://github.com/cabalex/fnf-song-converter/wiki/Making-new-costumes-for-BF"
+			}
+			if (location.search.includes("customstages")) {
+				location.href = "https://github.com/cabalex/fnf-song-converter/wiki/Making-Custom-Stages"
+			}
 		</script>
 		<!--
 		<h2>Friday Night Funkin' Modding Guides</h2>
