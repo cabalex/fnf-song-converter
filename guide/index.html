@@ -1,109 +1,147 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>Funkin' Song Converter</title>
-		<meta http-equiv="refresh" content="3; URL=https://github.com/cabalex/fnf-song-converter/wiki" />
-	</head>
-	<style>
-		body {
-			font-family: "Helvetica Neue", "Helvetica", Arial,sans-serif;
-		}
-		footer #credits {
-			text-decoration: none !important;
-			color: white;
-		}
-		img {
-			vertical-align: middle
-		}
-		#download {
-			vertical-align: top;
-			align-self: right;
-		}
-		h3 {
-			border-radius: 0.25em;
-			background-color: #4d97ff;
-			padding: 1em;
-			color: white;
-		}
-		.material-icons {
-			vertical-align: middle;
-		}
-		img {
-			padding: 1em;
-		}
-		.code a {
-			font-family: "Consolas", sans-serif;
-		}
-	</style>
-	<body>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  <head>
+    <title>Funkin' Song Converter</title>
+    <meta http-equiv="refresh" content="3; URL=https://github.com/cabalex/fnf-song-converter/wiki" />
+  </head>
+  <style>
+    @media (prefers-color-scheme: light) {
+    body {
+      font-family: "Helvetica Neue", "Helvetica", Arial,sans-serif;
+    }
+    footer #credits {
+      text-decoration: none !important;
+      color: white;
+    }
+    img {
+      vertical-align: middle
+    }
+    #download {
+      vertical-align: top;
+      align-self: right;
+    }
+    h3 {
+      border-radius: 0.25em;
+      background-color: #4d97ff;
+      padding: 1em;
+      color: white;
+    }
+    .material-icons {
+      vertical-align: middle;
+    }
+    img {
+      padding: 1em;
+    }
+    .code a {
+      font-family: "Consolas", sans-serif;
+    }}
+     @media (prefers-color-scheme: dark) {
+    body {
+      font-family: "Helvetica Neue", "Helvetica", Arial,sans-serif;
+      background-color:black;
+    }
+    footer #credits {
+      text-decoration: none !important;
+      color: white;
+    }
+    img {
+      vertical-align: middle
+    }
+    #download {
+      vertical-align: top;
+      align-self: right;
+    }
+    p{
+      color:white;
+    }
+    h2{
+      color:white;
+    }
+    h3 {
+      border-radius: 0.25em;
+      background-color: #4d97ff;
+      padding: 1em;
+      color: white;
+    }
+    .material-icons {
+      vertical-align: middle;
+    }
+    img {
+      padding: 1em;
+    }
+    .code a {
+      font-family: "Consolas", sans-serif;
+    }}
+  </style>
+  <body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-		<div id="topBar" style="background-color: #4d97ff; width: 100%; height: 50px; align-items: center; display: flex; flex-direction: row; position:fixed; top: 0; left: 0">
-			<ul style="list-style: none; display: flex; flex-direction: row; align-items: center; padding-left:0">
-				<li class="heading" style="padding: 1em">
-					<a style="color: #ffffff; text-decoration: none; background-color: #0fbd8c; padding: 1em" href="https://cabalex.github.io"><b>cabalex.github.io</b></a>
-				</li>
-				<li>
-					<a href="https://scratch.mit.edu"><image src="https://scratch.mit.edu/images/logo_sm.png" height="40px"></image></a>
-				</li>
-				<li class="heading" style="padding: 1em">
-					<a style="color: #ffffff; text-decoration: none" href="https://cabalex.github.io/fnf-song-converter"><b>FNF Scratch song converter</b></a>
-				</li>
-				<li class="heading" style="padding: 1em; background-color: #0068f9" onmouseover="this.style.background='#0056d0';" onmouseout="this.style.background='#0068f9';">
-					<a style="color: #ffffff; text-decoration: none" href="https://cabalex.github.io/fnf-song-converter/guide"><b>Guides</b></a>
-				</li>
-			</ul>
-		</div>
-		<div style="padding-top: 40px; margin-left: 10px;">
-			<h2>We've moved to a wiki on GitHub; you'll be redirected in a few seconds...</h2>
-			<p><i>Or if you're lazy like me, you can <a href="https://github.com/cabalex/fnf-song-converter/wiki">click here</a>...</i></p>
-			<br>
-			<i id="introText"></i>
-		</div>
-		<script type="text/javascript">
-			var elem = document.getElementById('introText')
-			introTexts = [
-				"Wanna make your song not custom? There's a hidden list in the Menus sprite that stores all non-custom songs.",
-				"Press 1 to refresh the Free Play High Scores, and if you changed the dev name, you can reset Cloud High Scores with it!",
-				"The IntroText list in the Menus sprite stores all intro text in two-line pairs!",
-				"Wanna die fast? Press R in game!",
-				"Downscroll used to be a hidden toggle hotkey before the settings menu was made.",
-				"The project was taken down twice for being inappropriate for Scratch!",
-				"Monster was originally in the game, before having to be removed due to Scratch guidelines. You can still find it in old remixes of the project!",
-				"You can find downloads to the latest version of the project on the Downloads page.",
-				"A Friday Night Funkin' Lite version was originally released, but was unshared due to the performance benefits being minimal.",
-				"I do more work than just Friday Night Funkin'! Check my GitHub.",
-				"The developer ran out of ideas for text to put here. How was your day?",
-				"Shoutouts to Tom Fulp!",
-				"Play the Newgrounds version and support the original game's developers!",
-				"Funk on!",
-				"You can also have queries in this url (e.g. https://cabalex.github.io/fnf-song-converter/guide?customsongs) to jump to your page quicker."
-			]
-			elem.innerHTML = introTexts[Math.floor(Math.random()*introTexts.length)]
-			// Detect queries (shortlinks to different guides)
-			if (location.search.includes("customsongs")) {
-				location.href = "https://github.com/cabalex/fnf-song-converter/wiki/Making-and-Importing-New-Songs"
-			}
-			if (location.search.includes("customcharacters")) {
-				location.href = "https://github.com/cabalex/fnf-song-converter/wiki/Making-New-Characters"
-			}
-			if (location.search.includes("custombf")) {
-				location.href = "https://github.com/cabalex/fnf-song-converter/wiki/Making-new-costumes-for-BF"
-			}
-			if (location.search.includes("customstages")) {
-				location.href = "https://github.com/cabalex/fnf-song-converter/wiki/Making-Custom-Stages"
-			}
-		</script>
-		<!--
-		<h2>Friday Night Funkin' Modding Guides</h2>
-		<h5>Stumble your way through my janky code no more!</h5>
-		Select a guide.
-		<a href="basic/index.html" style="text-decoration: none;"><h3 style="background-color: #0fbd8c"><span class="material-icons">library_music</span> 1 | Making/Importing songs</h3></a>
-		<a href="character/index.html" style="text-decoration: none;"><h3 style="background-color: #afafaf"><span class="material-icons">person_add</span> 2 | Adding new characters (coming soon)</h3></a>
-		<a style="text-decoration: none;"><h3 style="background-color: #afafaf"><span class="material-icons">person_add</span> 3 | Modding BF and GF (coming soon)</h3></a>
-		<a style="text-decoration: none;"><h3 style="background-color: #afafaf"><span class="material-icons">crop_original</span> 4 | Adding new environments (coming soon)</h3></a>
-		<br>
-		<a href="troubleshooting/index.html" style="text-decoration: none;"><h3 style="background-color: #ff4d5c"><span class="material-icons">report</span> Troubleshooting</h3></a>-->
-	</body>
+    <div id="topBar" style="background-color: #4d97ff; width: 100%; height: 50px; align-items: center; display: flex; flex-direction: row; position:fixed; top: 0; left: 0">
+      <ul style="list-style: none; display: flex; flex-direction: row; align-items: center; padding-left:0">
+        <li class="heading" style="padding: 1em">
+          <a style="color: #ffffff; text-decoration: none; background-color: #0fbd8c; padding: 1em" href="https://cabalex.github.io"><b>cabalex.github.io</b></a>
+        </li>
+        <li>
+          <a href="https://scratch.mit.edu"><image src="https://scratch.mit.edu/images/logo_sm.png" height="40px"></image></a>
+        </li>
+        <li class="heading" style="padding: 1em">
+          <a style="color: #ffffff; text-decoration: none" href="https://cabalex.github.io/fnf-song-converter"><b>FNF Scratch song converter</b></a>
+        </li>
+        <li class="heading" style="padding: 1em; background-color: #0068f9" onmouseover="this.style.background='#0056d0';" onmouseout="this.style.background='#0068f9';">
+          <a style="color: #ffffff; text-decoration: none" href="https://cabalex.github.io/fnf-song-converter/guide"><b>Guides</b></a>
+        </li>
+      </ul>
+    </div>
+    <div style="padding-top: 40px; margin-left: 10px;">
+      <h2>We've moved to a wiki on GitHub; you'll be redirected in a few seconds...</h2>
+      <p><i>Or if you're lazy like me, you can <a href="https://github.com/cabalex/fnf-song-converter/wiki">click here</a>...</i></p>
+      <br>
+      <i id="introText"></i>
+    </div>
+    <script style="color:white"type="text/javascript">
+      var elem = document.getElementById('introText')
+      introTexts = [
+        "Wanna make your song not custom? There's a hidden list in the Menus sprite that stores all non-custom songs.",
+        "Press 1 to refresh the Free Play High Scores, and if you changed the dev name, you can reset Cloud High Scores with it!",
+        "The IntroText list in the Menus sprite stores all intro text in two-line pairs!",
+        "Wanna die fast? Press R in game!",
+        "Downscroll used to be a hidden toggle hotkey before the settings menu was made.",
+        "The project was taken down twice for being inappropriate for Scratch!",
+        "Monster was originally in the game, before having to be removed due to Scratch guidelines. You can still find it in old remixes of the project!",
+        "You can find downloads to the latest version of the project on the Downloads page.",
+        "A Friday Night Funkin' Lite version was originally released, but was unshared due to the performance benefits being minimal.",
+        "I do more work than just Friday Night Funkin'! Check my GitHub.",
+        "The developer ran out of ideas for text to put here. How was your day?",
+        "Shoutouts to Tom Fulp!",
+        "Play the Newgrounds version and support the original game's developers!",
+        "Funk on!",
+        "You can also have queries in this url (e.g. https://cabalex.github.io/fnf-song-converter/guide?customsongs) to jump to your page quicker."
+      ]
+      elem.innerHTML = introTexts[Math.floor(Math.random()*introTexts.length)]
+      // Detect queries (shortlinks to different guides)
+      if (location.search.includes("customsongs")) {
+        location.href = "https://github.com/cabalex/fnf-song-converter/wiki/Making-and-Importing-New-Songs"
+      }
+      if (location.search.includes("customcharacters")) {
+        location.href = "https://github.com/cabalex/fnf-song-converter/wiki/Making-New-Characters"
+      }
+      if (location.search.includes("custombf")) {
+        location.href = "https://github.com/cabalex/fnf-song-converter/wiki/Making-new-costumes-for-BF"
+      }
+      if (location.search.includes("customstages")) {
+        location.href = "https://github.com/cabalex/fnf-song-converter/wiki/Making-Custom-Stages"
+      }
+    </script>
+    <!--
+    <h2>Friday Night Funkin' Modding Guides</h2>
+    <h5>Stumble your way through my janky code no more!</h5>
+    Select a guide.
+    <a href="basic/index.html" style="text-decoration: none;"><h3 style="background-color: #0fbd8c"><span class="material-icons">library_music</span> 1 | Making/Importing songs</h3></a>
+    <a href="character/index.html" style="text-decoration: none;"><h3 style="background-color: #afafaf"><span class="material-icons">person_add</span> 2 | Adding new characters (coming soon)</h3></a>
+    <a style="text-decoration: none;"><h3 style="background-color: #afafaf"><span class="material-icons">person_add</span> 3 | Modding BF and GF (coming soon)</h3></a>
+    <a style="text-decoration: none;"><h3 style="background-color: #afafaf"><span class="material-icons">crop_original</span> 4 | Adding new environments (coming soon)</h3></a>
+    <br>
+    <a href="troubleshooting/index.html" style="text-decoration: none;"><h3 style="background-color: #ff4d5c"><span class="material-icons">report</span> Troubleshooting</h3></a>-->
+  </body>
 </html>
