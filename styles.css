@@ -1,0 +1,136 @@
+body {
+    font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+}
+footer #credits {
+    text-decoration: none !important;
+    color: white;
+}
+img {
+    vertical-align: middle
+}
+#download {
+    vertical-align: top;
+    align-self: right;
+}
+#heading {
+    padding: 1em
+}
+#heading:hover {
+    background-color: #0068f9
+}
+#fileName {
+    width: 100%;
+    text-align: center;
+    background-color: #fafafa;
+    padding: 1em 1.25em;
+    margin: .5em;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.25rem;
+    transition: border 0.2s, filter 0.2s, margin 0.2s;
+    cursor: pointer;
+}
+#fileName:hover, #download:hover {
+    border: 4px solid rgba(0, 0, 0, 0.2);
+    filter: brightness(85%);
+    margin: calc(0.5em-4px);
+}
+#download {
+    display: block;
+    text-align: center;
+    border: 4px solid #0fbd8c; 
+    transition: border 0.2s, filter 0.2s, margin 0.2s ease-in-out;
+    font-weight: bold;
+    background-color: #0fbd8c;
+    color: white;
+    padding: 1em 1.25em;
+    border: 0;
+    border-radius: 0.25rem;
+    margin: 0.5em;
+    text-decoration: none
+}
+a {
+    text-decoration: none;
+    color: #1c7de6;
+}
+.heading {
+    border-radius: 0.25em;
+    background-color: #4d97ff;
+    padding: 1em;
+    color: white;
+}
+.btn {
+    color:white;
+    padding:0.5em;
+    margin-top: 3em;
+    margin-bottom:1em;
+    border-radius:0.25em;
+}
+.material-icons {
+    vertical-align: middle;
+}
+img {
+    padding: 1em;
+}
+.changelog-items li {
+    padding-top: 5px;
+}
+.code a {
+    font-family: "Consolas", sans-serif;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  width: 300%;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 0%;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+
+/* dark mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        color: white;
+    }
+    /* full height of page instead of page content */
+    body:before {
+        background: linear-gradient(#212121, #000000);
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+    #download, #fileName {
+        color: black;
+    }
+    a {
+        color: #1c7de6;
+    }
+    #heading:hover {
+        background-color: #0068f9
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .desktop { display: none; }
+}
