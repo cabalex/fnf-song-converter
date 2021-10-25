@@ -1,187 +1,207 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>Funkin' Song Converter</title>
-	</head>
-	<style>
+  <head>
+    <title>Funkin' Song Converter</title>
+  </head>
+  <style>
     @media (prefers-color-scheme: light) {
 body {
-			font-family: "Helvetica Neue", "Helvetica", Arial,sans-serif;
-		}
-		footer #credits {
-			text-decoration: none !important;
-			color: white;
-		}
-		img {
-			vertical-align: middle
-		}
-		#download {
-			vertical-align: top;
-			align-self: right;
-		}
-		#heading {
-			padding: 1em
-		}
-		#heading:hover {
-			background-color: #0068f9
-		}
-		#fileName {
-			width: 100%;
-			text-align: center;
-			background-color: #fafafa;
-			padding: 1em 1.25em;
-			margin: .5em;
-			border: 2px solid rgba(0, 0, 0, 0.2);
-			border-radius: 0.25rem;
-			transition: border 0.2s, filter 0.2s, margin 0.2s;
-			cursor: pointer;
-		}
-		#fileName:hover, #download:hover {
-			border: 4px solid rgba(0, 0, 0, 0.2);
-			filter: brightness(85%);
-			margin: calc(0.5em-4px);
-		}
-		#download {
-			display: block;
-			text-align: center;
-			border: 4px solid #0fbd8c; 
-			transition: border 0.2s, filter 0.2s, margin 0.2s ease-in-out;
-			font-weight: bold;
-			background-color: #0fbd8c;
-			color: white;
-			padding: 1em 1.25em;
-			border: 0;
-			border-radius: 0.25rem;
-			margin: 0.5em;
-			text-decoration: none
-		}
+      font-family: "Helvetica Neue", "Helvetica", Arial,sans-serif;
+    }
+    footer #credits {
+      text-decoration: none !important;
+      color: white;
+    }
+    img {
+      vertical-align: middle
+    }
+    #download {
+      vertical-align: top;
+      align-self: right;
+    }
+    #heading {
+      padding: 1em
+    }
+    #heading:hover {
+      background-color: #0068f9
+    }
+    #fileName {
+      width: 100%;
+      text-align: center;
+      background-color: #fafafa;
+      padding: 1em 1.25em;
+      margin: .5em;
+      border: 2px solid rgba(0, 0, 0, 0.2);
+      border-radius: 0.25rem;
+      transition: border 0.2s, filter 0.2s, margin 0.2s;
+      cursor: pointer;
+    }
+    #fileName:hover, #download:hover {
+      border: 4px solid rgba(0, 0, 0, 0.2);
+      filter: brightness(85%);
+      margin: calc(0.5em-4px);
+    }
+    #download {
+      display: block;
+      text-align: center;
+      border: 4px solid #0fbd8c; 
+      transition: border 0.2s, filter 0.2s, margin 0.2s ease-in-out;
+      font-weight: bold;
+      background-color: #0fbd8c;
+      color: white;
+      padding: 1em 1.25em;
+      border: 0;
+      border-radius: 0.25rem;
+      margin: 0.5em;
+      text-decoration: none
+    }
+    .link1{
+      font-size: 12px;
+      color: blue;
+      text-decoration: none;
+    }
+    .link2{
+      text-decoration: none;
+    }
 }
     @media (prefers-color-scheme: dark) {
-		body {
-			font-family: "Helvetica Neue", "Helvetica", Arial,sans-serif;
+    body {
+      font-family: "Helvetica Neue", "Helvetica", Arial,sans-serif;
       background-image: linear-gradient(to bottom,#212121, #000000);
-		}
+    }
     a {
       color: #288ffc;
     }
     div {
       color: white;
     }
-		footer #credits {
-			text-decoration: none !important;
-			color: white;
-		}
-		img {
-			vertical-align: middle
-		}
-		#download {
-			vertical-align: top;
-			align-self: right;
-		}
-		#heading {
-			padding: 1em
-		}
-		#heading:hover {
-			background-color: #0068f9
-		}
-		#fileName {
-			width: 100%;
-			text-align: center;
-			background-color: #fafafa;
-			padding: 1em 1.25em;
-			margin: .5em;
-			border: 2px solid rgba(0, 0, 0, 0.2);
-			border-radius: 0.25rem;
-			transition: border 0.2s, filter 0.2s, margin 0.2s;
-			cursor: pointer;
-		}
-		#fileName:hover, #download:hover {
-			border: 4px solid rgba(0, 0, 0, 0.2);
-			filter: brightness(85%);
-			margin: calc(0.5em-4px);
-		}
-		#download {
-			display: block;
-			text-align: center;
-			border: 4px solid #0fbd8c; 
-			transition: border 0.2s, filter 0.2s, margin 0.2s ease-in-out;
-			font-weight: bold;
-			background-color: #0fbd8c;
-			color: white;
-			padding: 1em 1.25em;
-			border: 0;
-			border-radius: 0.25rem;
-			margin: 0.5em;
-			text-decoration: none
-		}
-        }
-	</style>
-	<body>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<div id="topBar" style="background-color: #4d97ff; width: 100%; height: 50px; align-items: center; display: flex; flex-direction: row; position:fixed; top: 0; left: 0">
-			<ul style="list-style: none; display: flex; flex-direction: row; align-items: center; padding-left:0">
-				<li class="heading" style="padding: 1em">
-					<a style="color: #ffffff; text-decoration: none; background-color: #0fbd8c; padding: 1em" href="https://cabalex.github.io"><b>cabalex.github.io</b></a>
-				</li>
-				<li>
-					<a href="https://scratch.mit.edu"><image src="https://scratch.mit.edu/images/logo_sm.png" height="40px"></image></a>
-				</li>
-				<li class="heading" style="padding: 1em">
-					<a style="color: #ffffff; text-decoration: none" href="https://scratch.mit.edu/projects/519325355/"><b>FNF Scratch song converter</b></a>
-				</li>
-				<a style="color: #ffffff; text-decoration: none" href="guide/"><li class="heading" style="padding: 1em; background-color: #0068f9" onmouseover="this.style.background='#0056d0';" onmouseout="this.style.background='#0068f9';">
-					<b>Wanna make a song? Start here!</b>
-				</li></a>
-				<a style="color: #ffffff; text-decoration: none" href="downloads/"><li class="heading" style="padding: 1em; background-color: #4d97ff" onmouseover="this.style.background='#0068f9';" onmouseout="this.style.background='#4d97ff';">
-					<b>Downloads</b>
-				</li></a>
+    footer #credits {
+      text-decoration: none !important;
+      color: white;
+    }
+    img {
+      vertical-align: middle
+    }
+    #download {
+      vertical-align: top;
+      align-self: right;
+    }
+    #heading {
+      padding: 1em
+    }
+    #heading:hover {
+      background-color: #0068f9
+    }
+    #fileName {
+      width: 100%;
+      text-align: center;
+      background-color: #fafafa;
+      padding: 1em 1.25em;
+      margin: .5em;
+      border: 2px solid rgba(0, 0, 0, 0.2);
+      border-radius: 0.25rem;
+      transition: border 0.2s, filter 0.2s, margin 0.2s;
+      cursor: pointer;
+    }
+    #fileName:hover, #download:hover {
+      border: 4px solid rgba(0, 0, 0, 0.2);
+      filter: brightness(85%);
+      margin: calc(0.5em-4px);
+    }
+    #download {
+      display: block;
+      text-align: center;
+      border: 4px solid #0fbd8c; 
+      transition: border 0.2s, filter 0.2s, margin 0.2s ease-in-out;
+      font-weight: bold;
+      background-color: #0fbd8c;
+      color: white;
+      padding: 1em 1.25em;
+      border: 0;
+      border-radius: 0.25rem;
+      margin: 0.5em;
+      text-decoration: none
+    }
+        .link1{
+      font-size: 12px;
+      color: #288ffc;
+      text-decoration: none;
+    }
+    a{
+      color: #1c7de6;
+    }
+    .link2{
+      color: #1c7de6;
+      text-decoration: none;
+    }
+    }
+  </style>
+  <body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div id="topBar" style="background-color: #4d97ff; width: 100%; height: 50px; align-items: center; display: flex; flex-direction: row; position:fixed; top: 0; left: 0">
+      <ul style="list-style: none; display: flex; flex-direction: row; align-items: center; padding-left:0">
+        <li class="heading" style="padding: 1em">
+          <a style="color: #ffffff; text-decoration: none; background-color: #0fbd8c; padding: 1em" href="https://cabalex.github.io"><b>cabalex.github.io</b></a>
+        </li>
+        <li>
+          <a href="https://scratch.mit.edu"><image src="https://scratch.mit.edu/images/logo_sm.png" height="40px"></image></a>
+        </li>
+        <li class="heading" style="padding: 1em">
+          <a style="color: #ffffff; text-decoration: none" href="https://scratch.mit.edu/projects/519325355/"><b>FNF Scratch song converter</b></a>
+        </li>
+        <a style="color: #ffffff; text-decoration: none" href="guide/"><li class="heading" style="padding: 1em; background-color: #0068f9" onmouseover="this.style.background='#0056d0';" onmouseout="this.style.background='#0068f9';">
+          <b>Wanna make a song? Start here!</b>
+        </li></a>
+        <a style="color: #ffffff; text-decoration: none" href="downloads/"><li class="heading" style="padding: 1em; background-color: #4d97ff" onmouseover="this.style.background='#0068f9';" onmouseout="this.style.background='#4d97ff';">
+          <b>Downloads</b>
+        </li></a>
  
-		</div>
-		<div id="warningNotice" style="background-color: #ff4d5c; padding: 1em; margin-top:4em; color: white; left:0; border-radius:0.25em;">
-			<b>Funk on!</b> My project will probably no longer recieve substantial updates, but everything will continue to work as normal. Wanna see what I'm doing next? <a style="color: white; font-weight: bold" href="https://cabalex.github.io">Visit my homepage.</a>
-		</div>
-		<br>
-		<form>
-			<div style="width: 90%; padding-bottom: 20px; max-width: 500px; flex-direction: row; justify-content: left; flex-wrap: wrap; display: flex; background-color: rgba(77, 151, 255, 0.25); align-items: center; border-radius: 0.25rem; padding: 0 0.5em">
-				<p>
-					Expanded note handling (e.g. Tricky Mod Halo notes): <select name="noteHandlingSelector" id="noteHandlingSelector">
-						<option value="ignore">Ignore unexpected notes</option>
-						<option value="modulo">Limit to default range (0-7)</option>
-						<option value="expanded">Allow all notes (EXPERIMENTAL)</option>
-						<option value="expanded_unmodified">Allow all notes without modifications (EXPERIMENTAL)</option>
-				</select><br><a style="font-size: 12px; color: #288ffc; text-decoration: none;" href="https://github.com/cabalex/fnf-song-converter/wiki/Making-and-Importing-New-Songs#step-2--converting-your-song-map">What does this mean?</a></p>
-				<p style="color:black" id="fileName" onclick="getFile()" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">Upload your file...</p>
-				</div>
-		  </div>
-			<div style='height: 0px;width: 0px; overflow:hidden;'><input type="file" accept=".json", id="fileInput", onchange="fileLoad(event)"></div>
-		</form>
-		<div id="output" style="width: 90%; max-width: 500px; flex-direction: row; justify-content: left; flex-wrap: wrap; display: flex; background-color: rgba(77, 151, 255, 0.25); align-items: center; border-radius: 0.25rem; padding:0.5em; margin:0.5em 0; display: none;"></div>
-		<div style="padding-top: 2em; padding-bottom: 2em; padding-left: 1em; padding-right: 1em">
-			Convert your songs made in the Friday Night Funkin' Editor to song maps that the Scratch program can read. Nothing is sent or stored on any server- it's just Javascript and it runs directly in your (modern-ish) browser.
-			<h2><a style="color: #1c7de6; text-decoration: none" href="guide/">See the guide here for more info</a></h2>
-			<h3>Where do I get my JSON files?</h3>
-			Your JSON files are created in the official <a href="https://ninja-muffin24.itch.io/funkin">Friday Night Funkin'</a> beat map editor. When you load up the game, choose a song. Then, in that song, press 7. You'll then see the editor! <a href="https://www.youtube.com/watch?v=BstyEfnXdKM">There's plenty of guides on YouTube about how to use it</a>, so I won't talk about it here.
-			<br>When you're done with your song's beat map, go to the third tab and click "Save...". It should download a JSON to your computer. There it is!</br>
-			<h3>What do I do with the TXT file I just downloaded?</h3>
-			You can use it in <a href="https://scratch.mit.edu/projects/491440657/">the project</a>, of course! <a href="https://github.com/cabalex/fnf-song-converter/wiki/Making-and-Importing-New-Songs">See here for more info</a>.
-			<h3>What does the song speed do? The Scratch program doesn't ask for it.</h3>
-			The song speed parameter is related to the "multiplier" parameter that is set in the Scratch project, but they are definitely not interchangable. The multiplier variable also goes from high to low, instead of low to high. Play around with the variable settings and see what speed fits your song!
-			<br>It can be used as a reference to set the multiplier value, though.</br>
-			<h3>Can I convert my Scratch songs back to a FNF compatible JSON?</h3>
-			Unfortunately not. It technically is possible, but the converter trims out unnecessary info that isn't needed for the Scratch project, but is needed for the actual game (e.g. song name, song speed).
-			<h3>The download button didn't show up / I can't upload / I need help</h3>
-			Your beat map may be invalid, or you might just not be using a modern enough browser. Try opening the web console (CTRL+SHIFT+J on Chrome), and sending the error (and the beat map you tried to convert) to me.
-			<h3>Why isn't this a project on Scratch? I can't access this site on my computer/school owned device.</h3>
-			I can't really make an easy file converter in Scratch- it'd just be a mess. This way was just a lot easier, and allows me to add a bunch of other stuff too, like guides, and have it be all in one place. It's also easier to get errors troubleshooted and fixed here- just <a href="https://github.com/cabalex/fnf-song-converter/issues">open an issue</a> (bugs ONLY, no help requests).
-		</div>
-		<div style="height:5em"></div>
-		<script src="convert.js"></script>
-		<noscript>I'm not sure how you expect this to work without JS lol</noscript>
-		<footer style="position: fixed; bottom: 0; width:100%; left: 0;">
-			<div style="bottom: 0; background-color: #4d97ff; padding:1em; color:white;">
-				<b>code and ""reverse engineering"" by cabalex <a href="https://github.com/cabalex"><svg height="20px" style="color: white; align-items: middle;" viewBox="0 0 16 16" version="1.1" height="20px" aria-hidden="true"><path fill="white" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg></a> <a id="credits" href="https://scratch.mit.edu/users/cabalex/"><image height="20px" src="https://u.cubeupload.com/csf30816/5aVuDN.png"></image></a></b>
-				<br><i>sick game devs: <a id="credits" href="https://twitter.com/ninja_muffin99">@ninja_muffin99</a>, <a id="credits" href="https://twitter.com/PhantomArcade3k">@PhantomArcade3k</a>, <a id="credits" href="https://twitter.com/evilsk8r">@evilsk8r</a>, and <a id="credits" href=https://twitter.com/kawaisprite>@kawaisprite</a></i></br>
-			</div>
-		</footer>
-	</body>
+    </div>
+    <div id="warningNotice" style="background-color: #ff4d5c; padding: 1em; margin-top:4em; color: white; left:0; border-radius:0.25em;">
+      <b>Funk on!</b> My project will probably no longer recieve substantial updates, but everything will continue to work as normal. Wanna see what I'm doing next? <a style="color: white; font-weight: bold" href="https://cabalex.github.io">Visit my homepage.</a>
+    </div>
+    <br>
+    <form>
+      <div style="width: 90%; padding-bottom: 20px; max-width: 500px; flex-direction: row; justify-content: left; flex-wrap: wrap; display: flex; background-color: rgba(77, 151, 255, 0.25); align-items: center; border-radius: 0.25rem; padding: 0 0.5em">
+        <p>
+          Expanded note handling (e.g. Tricky Mod Halo notes): <select name="noteHandlingSelector" id="noteHandlingSelector">
+            <option value="ignore">Ignore unexpected notes</option>
+            <option value="modulo">Limit to default range (0-7)</option>
+            <option value="expanded">Allow all notes (EXPERIMENTAL)</option>
+            <option value="expanded_unmodified">Allow all notes without modifications (EXPERIMENTAL)</option>
+        </select><br><a class="link1" href="https://github.com/cabalex/fnf-song-converter/wiki/Making-and-Importing-New-Songs#step-2--converting-your-song-map">What does this mean?</a></p>
+        <p style="color:black" id="fileName" onclick="getFile()" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">Upload your file...</p>
+        </div>
+      </div>
+      <div style='height: 0px;width: 0px; overflow:hidden;'><input type="file" accept=".json", id="fileInput", onchange="fileLoad(event)"></div>
+    </form>
+    <div id="output" style="width: 90%; max-width: 500px; flex-direction: row; justify-content: left; flex-wrap: wrap; display: flex; background-color: rgba(77, 151, 255, 0.25); align-items: center; border-radius: 0.25rem; padding:0.5em; margin:0.5em 0; display: none;"></div>
+    <div style="padding-top: 2em; padding-bottom: 2em; padding-left: 1em; padding-right: 1em">
+      Convert your songs made in the Friday Night Funkin' Editor to song maps that the Scratch program can read. Nothing is sent or stored on any server- it's just Javascript and it runs directly in your (modern-ish) browser.
+      <h2><a class="link2" href="guide/">See the guide here for more info</a></h2>
+      <h3>Where do I get my JSON files?</h3>
+      Your JSON files are created in the official <a href="https://ninja-muffin24.itch.io/funkin">Friday Night Funkin'</a> beat map editor. When you load up the game, choose a song. Then, in that song, press 7. You'll then see the editor! <a href="https://www.youtube.com/watch?v=BstyEfnXdKM">There's plenty of guides on YouTube about how to use it</a>, so I won't talk about it here.
+      <br>When you're done with your song's beat map, go to the third tab and click "Save...". It should download a JSON to your computer. There it is!</br>
+      <h3>What do I do with the TXT file I just downloaded?</h3>
+      You can use it in <a href="https://scratch.mit.edu/projects/491440657/">the project</a>, of course! <a href="https://github.com/cabalex/fnf-song-converter/wiki/Making-and-Importing-New-Songs">See here for more info</a>.
+      <h3>What does the song speed do? The Scratch program doesn't ask for it.</h3>
+      The song speed parameter is related to the "multiplier" parameter that is set in the Scratch project, but they are definitely not interchangable. The multiplier variable also goes from high to low, instead of low to high. Play around with the variable settings and see what speed fits your song!
+      <br>It can be used as a reference to set the multiplier value, though.</br>
+      <h3>Can I convert my Scratch songs back to a FNF compatible JSON?</h3>
+      Unfortunately not. It technically is possible, but the converter trims out unnecessary info that isn't needed for the Scratch project, but is needed for the actual game (e.g. song name, song speed).
+      <h3>The download button didn't show up / I can't upload / I need help</h3>
+      Your beat map may be invalid, or you might just not be using a modern enough browser. Try opening the web console (CTRL+SHIFT+J on Chrome), and sending the error (and the beat map you tried to convert) to me.
+      <h3>Why isn't this a project on Scratch? I can't access this site on my computer/school owned device.</h3>
+      I can't really make an easy file converter in Scratch- it'd just be a mess. This way was just a lot easier, and allows me to add a bunch of other stuff too, like guides, and have it be all in one place. It's also easier to get errors troubleshooted and fixed here- just <a href="https://github.com/cabalex/fnf-song-converter/issues">open an issue</a> (bugs ONLY, no help requests).
+    </div>
+    <div style="height:5em"></div>
+    <script src="convert.js"></script>
+    <noscript>I'm not sure how you expect this to work without JS lol</noscript>
+    <footer style="position: fixed; bottom: 0; width:100%; left: 0;">
+      <div style="bottom: 0; background-color: #4d97ff; padding:1em; color:white;">
+        <b>code and ""reverse engineering"" by cabalex <a href="https://github.com/cabalex"><svg height="20px" style="color: white; align-items: middle;" viewBox="0 0 16 16" version="1.1" height="20px" aria-hidden="true"><path fill="white" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg></a> <a id="credits" href="https://scratch.mit.edu/users/cabalex/"><image height="20px" src="https://u.cubeupload.com/csf30816/5aVuDN.png"></image></a></b>
+        <br><i>sick game devs: <a id="credits" href="https://twitter.com/ninja_muffin99">@ninja_muffin99</a>, <a id="credits" href="https://twitter.com/PhantomArcade3k">@PhantomArcade3k</a>, <a id="credits" href="https://twitter.com/evilsk8r">@evilsk8r</a>, and <a id="credits" href=https://twitter.com/kawaisprite>@kawaisprite</a></i></br>
+      </div>
+    </footer>
+  </body>
 </html>
