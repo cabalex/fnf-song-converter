@@ -1,147 +1,217 @@
-<!DOCTYPE HTML>
+t<!DOCTYPE HTML>
 <html>
-	<head>
-		<title>Funkin' Song Converter</title>
-	</head>
-	<style>
-		body {
-			font-family: "Helvetica Neue", "Helvetica", Arial,sans-serif;
-		}
-		footer #credits {
-			text-decoration: none !important;
-			color: white;
-		}
-		img {
-			vertical-align: middle
-		}
-		#download {
-			vertical-align: top;
-			align-self: right;
-		}
-		h3 {
-			border-radius: 0.25em;
-			background-color: #4d97ff;
-			padding: 1em;
-			color: white;
-		}
-		.material-icons {
-			vertical-align: middle;
-		}
-		img {
-			padding: 1em;
-		}
-		.changelog-items li {
-			padding-top: 5px;
-		}
-		.code a {
-			font-family: "Consolas", sans-serif;
-		}
-		.tooltip {
-		  position: relative;
-		  display: inline-block;
-		  border-bottom: 1px dotted black;
-		}
+  <head>
+    <title>Funkin' Song Converter</title>
+  </head>
+  <style>
+    @media (prefers-color-scheme: light) {
+    body {
+      font-family: "Helvetica Neue", "Helvetica", Arial,sans-serif;
+    }
+    footer #credits {
+      text-decoration: none !important;
+      color: white;
+    }
+    img {
+      vertical-align: middle
+    }
+    #download {
+      vertical-align: top;
+      align-self: right;
+    }
+    h3 {
+      border-radius: 0.25em;
+      background-color: #4d97ff;
+      padding: 1em;
+      color: white;
+    }
+    .material-icons {
+      vertical-align: middle;
+    }
+    img {
+      padding: 1em;
+    }
+    .changelog-items li {
+      padding-top: 5px;
+    }
+    .code a {
+      font-family: "Consolas", sans-serif;
+    }
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px dotted black;
+    }
 
-		.tooltip .tooltiptext {
-		  visibility: hidden;
-		  background-color: black;
-		  color: #fff;
-		  width: 300%;
-		  text-align: center;
-		  border-radius: 6px;
-		  padding: 5px;
-		  
-		  /* Position the tooltip */
-		  position: absolute;
-		  z-index: 1;
-		  bottom: 100%;
-		  left: 0%;
-		}
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      background-color: black;
+      color: #fff;
+      width: 300%;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px;
+      
+      /* Position the tooltip */
+      position: absolute;
+      z-index: 1;
+      bottom: 100%;
+      left: 0%;
+    }
 
-		.tooltip:hover .tooltiptext {
-		  visibility: visible;
-		}
-	</style>
-	<body>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }}
+    @media (prefers-color-scheme: dark) {
+    body {
+      font-family: "Helvetica Neue", "Helvetica", Arial,sans-serif;
+      background-image: linear-gradient(to bottom,#212121, #000000);
+    }
+    div {
+      color:white;
+    }
+    h2 {
+      color: white;
+    }
+    footer #credits {
+      text-decoration: none !important;
+      color: white;
+    }
+    img {
+      vertical-align: middle
+    }
+    #download {
+      vertical-align: top;
+      align-self: right;
+    }
+    h3 {
+      border-radius: 0.25em;
+      background-color: #4d97ff;
+      padding: 1em;
+      color: white;
+    }
+    .material-icons {
+      vertical-align: middle;
+    }
+    img {
+      padding: 1em;
+    }
+    .changelog-items li {
+      padding-top: 5px;
+    }
+    .code a {
+      font-family: "Consolas", sans-serif;
+    }
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px dotted white;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      background-color: black;
+      color: #fff;
+      width: 300%;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px;
+      
+      /* Position the tooltip */
+      position: absolute;
+      z-index: 1;
+      bottom: 100%;
+      left: 0%;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }
+      a{
+      color: #1c7de6;
+      }
+  </style>
+<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-		<div id="topBar" style="background-color: #4d97ff; width: 100%; height: 50px; align-items: center; display: flex; flex-direction: row; position:fixed; top: 0; left: 0">
-			<ul style="list-style: none; display: flex; flex-direction: row; align-items: center; padding-left:0">
-				<li class="heading" style="padding: 1em">
-					<a style="color: #ffffff; text-decoration: none; background-color: #0fbd8c; padding: 1em" href="https://cabalex.github.io"><b>cabalex.github.io</b></a>
-				</li>
-				<li>
-					<a href="https://scratch.mit.edu"><image src="https://scratch.mit.edu/images/logo_sm.png" height="40px"></image></a>
-				</li>
-				<li class="heading" style="padding: 1em">
-					<a style="color: #ffffff; text-decoration: none" href="https://cabalex.github.io/fnf-song-converter"><b>FNF Scratch song converter</b></a>
-				</li>
-			</ul>
-		</div>
-		<br></br>
-		<div id="warningNotice" style="display: none; background-color: #ff4d5c; padding: 1em; margin-top:4em; color: white; left:0; border-radius:0.25em">
-			Notice: My official Friday Night Funkin' Scratch project will no longer recieve updates or improvements due to circumstances beyond my control.
-			<br></br>
-			<a href="../takedown-info/index.html" style="text-decoration: none; color:black; padding:0.5em; background-color:white; margin-top: 3em; margin-bottom:1em; border-radius:0.25em">Read more</a></div>
-		<h2>Friday Night Funkin' Scratch Project Downloads</h2>
-		Take your pick on what project you want to download. <b>Unless you absolutely need Winter Horrorland, I recommend the latest version.</b>
-		<br>
-		<br>
-		<b><u>Remember: if you're not making any significant changes to the gameplay, please credit my work in the Notes and Credits section.</u></b> I spent a lot of time on it, and if you don't put it near the top, people won't see it. <b>Also, if you are directly reuploading my project, please don't modify my watermarks to add your own name.</b> I mean, if you're not making any changes, it seems kinda silly, right?
-		<br>
-		<i>Psst! You don't need to credit me if you're just remixing. Scratch credits me automatically! Don't worry about it :)</i>
-		<h3><span class="material-icons">upcoming</span> Download the latest version (v25v3)</h3>
-		<b><a href="https://drive.google.com/file/d/1XkLv45TGPpT5mYtXZPu2ofN3cwspYhIS/view?usp=sharing" style="text-decoration: none; color:white; padding:0.5em; background-color:#4d97ff; margin-top: 3em; margin-bottom:1em; border-radius:0.25em"><span class="material-icons">get_app</span> Download the .sb3 file</a> <a href="https://turbowarp.org/519325355/" style="text-decoration: none; color:white; padding:0.5em; background-color:#0fbd8c; margin-top: 3em; margin-bottom:1em; border-radius:0.25em"><span class="material-icons">sports_esports</span> Edit/download the file in Turbowarp</a> <a href="https://scratch.mit.edu/projects/519325355/" style="text-decoration: none; color:white; padding:0.5em; background-color:#F8AA36; margin-top: 3em; margin-bottom:1em; border-radius:0.25em"><span class="material-icons">sports_esports</span> Scratch reupload</a></b>
-		<br><br><span class="material-icons">warning</span> Getting errors when loading the project in Turbowarp? You may want to try <a href="https://forkphorus.github.io/#519325355">Forkphorus</a> instead.
-		<br><br><span class="material-icons">warning</span> Some school administrations may block you from downloading this file. Requesting permission won't work- try on a personal Google account.
-		<h3 style="background-color: #afafaf"><span class="material-icons">archive</span> Download the latest version with Winter Horrorland included (v7)</h3>
-		<b>This will no longer be updated!</b> While you can add back support manually, I will no longer be maintaining a version with Winter Horrorland included. <div class="tooltip">Here's why.<span class="tooltiptext">Since I really don't want to be banned off of Scratch, I've decided to take more precautions with the second release of my FNF project. I know people like the song, but I can't include it without serious takedown implications. Sorry!</span></div>
-		<br><br>
-		<b><a style="text-decoration: none; color:white; padding:0.5em; background-color:#afafaf; margin-top: 3em; margin-bottom:1em; border-radius:0.25em"><span class="material-icons">get_app</span> Download the .sb3 file (coming soon)</a> <a href="https://turbowarp.org/484321587/" style="text-decoration: none; color:white; padding:0.5em; background-color:#0fbd8c; margin-top: 3em; margin-bottom:1em; border-radius:0.25em"><span class="material-icons">sports_esports</span> Edit/download the file in Turbowarp</a></b>
-		<h3><span class="material-icons">inbox</span> Changelog</h3>
-		<ul class="changelog-items">
-			<li>v25v3 - Optimized note duplication prevention algorithm (thanks <a href="https://scratch.mit.edu/users/kris235">@kris235</a>!)</li>
-			<li>v25v2 - Fixed bug where local high scores were not updating on custom songs.</li>
-			<li>v25v1 - Censored some minor background elements in Week 5.</li>
-			<li>v25 (5/10/2021) - Overhaul of how songs are loaded. Also, fixed bug where high score would show in custom songs.</li>
-			<li>v24v2 (5/4/2021) - Miscellaneous bug fixes.</li>
-			<li>v24v1 (5/2/2021) - Changed Tankman's asset slightly.</li>
-			<li>v24 (5/1/2021) - Overhaul of how combos and misses work; fixed big bug where loading would occur out of order</li>
-			<li>v23v2 (4/27/2021) - Fixed scrolling in the settings menu.</li>
-			<li>v23v1 (4/27/2021) - Fixed bug where "danger" sprites didn't show up.</li>
-			<li>v23 (4/27/2021) - Overhaul of health bar.</li>
-			<li>v22 (4/26/2021) - Note and stage optimizations. Hopefully timings should be less off now?</li>
-			<li>v21v2 (4/24/2021) - Fixed mobile navigation on the menus.</li>
-			<li>v21v1 (4/24/2021) - Miscellaneous bug fixes.</li>
-			<li>v21 (4/24/2021) - New settings and donate menu! You can now configure the controls. Reduced Motion lets you play the game without all the move-y camera bits. Changed the "Misses" counter to "Accuracy", and added the top score for each song to the UI.</li>
-			<li>v20 (4/24/2021) - Huge camera update! Changed the "bop" system from the arrows/notes moving to the whole stage moving at once. Also, Week 7 should run a lot faster as I've optimized the clone count from 15 to 8.</li>
-			<li>v19 (4/22/2021) - Added note calibration! Press C in the menu to enter simple calibration, where you just need to tap to the beat to calibrate. Or, hold C to fine tune your calibration. Each number is a 100th of a second. This may not help in all cases (some computers may have inconsistent latency) but it should help for most.</li>
-			<li>v18 (4/22/2021) - Patched Week 5 to be more family friendly, I guess :)</li>
-			<li>v17 (4/22/2021) - Fixed some background things, and made note timing much more precise (apparently i wasn't checking note presses fast enough).</li>
-			<li>v16 (4/21/2021) - OKAY, I know I said I wouldn't do Week 7. Well, here we are. Updated menus and UI, improved performance, and Week 7, along with another re-release. I should stop promising I won't do things...</li>
-			<br>
-			<li>v15 (4/17/2021) - Added downscroll as a native feature! Toggle with Q in the menu.</li>
-			<li>v14 (3/29/2021) - Added a misses counter and local high scores- try to get perfect!</li>
-			<li>v13 (3/8/2021) - Fixed the bug on pixel songs where held notes didn't display properly. Also, figured I'd package this into a release.</li>
-			<li>v12v2 (3/7/2021) - Fixed ANOTHER giant bug with note detection (should actually work now?)</li>
-			<li>v12v1 (3/7/2021) - Fixed giant bug with note detection, whoops</li>
-			<li>v12 (3/7/2021) - fixed MASSIVE bug where more than one note could be hit at once, causing problems- combos are like... actually possible now (although there may be more lag)- also polished a few things</li>
-			<li>v11 (3/6/2021) - made the internals a bit more friendly to modding.</li>
-			<li>v10 (2/25/2021) - fixed held notes [finally]. It might lag a little more, but at least it's fixed</li>
-			<li>v9v2 (2/25/2021) - ALRIGHT FINE, I made the timing more lenient lol</li>
-			<li>v9v1 (2/23/2021) - fixed bug where you could get points by spamming the keys on held notes (thanks @friday_night_funkinF)</li>
-			<li>v9 (2/23/2021) - scoring systems! compete with the world to get the highest scores on all difficulties.</li>
-			<li>v8 (or i guess 2.0, 2/22/2021) - reuploaded back to Scratch! hopefully i'm actually not taken down this time. includes some improvements to gameplay, and also finishes off all the songs!</li>
-			<br>
-			<li>v7 (2/11/2021) - overhaul of how notes are counted as "hit" or "missed"! it now relies on the timer directly, so it should be more accurate (in most cases >:( )</li>
-			<li>v6 (2/11/2021) - added [most] of Week 6. I just have the spirit's sprites left, but I'll do that sometime soon. also fixed some bugs, but there's prob more</li>
-			<li>v5v1 - fixed bug where you could die in the menu (whoops, thanks @undertale_guy6394647); if you REALLY wanna experience it enable debug mode</li>
-			<li>v5 (2/10/2021) - Added Week 5 and a quirky warning for Winter Horrorland (v8 update: has been removed)</li>
-			<li>v4 (2/9/2021) - No internal changes, but it's now possible to convert songs from FNF! (See the READ ME sprite inside.)</li>
-			<li>v3 (2/9/2021) - you can now choose between different song difficulties. also i may have bloated this project 3x, whoops</li>
-			<li>v2 (2/9/2021) - added week 2 and 4. isn't that funky. also a lot of animations should be more in time now</li>
-			<li>v1 (2/8/2021) - i did it, i made the game. have fun playing weeks 1 and 3 because i am too lazy to do 2</li>
-		<br>
-	</body>
+    <div id="topBar" style="background-color: #4d97ff; width: 100%; height: 50px; align-items: center; display: flex; flex-direction: row; position:fixed; top: 0; left: 0">
+      <ul style="list-style: none; display: flex; flex-direction: row; align-items: center; padding-left:0">
+        <li class="heading" style="padding: 1em">
+          <a style="color: #ffffff; text-decoration: none; background-color: #0fbd8c; padding: 1em" href="https://cabalex.github.io"><b>cabalex.github.io</b></a>
+        </li>
+        <li>
+          <a href="https://scratch.mit.edu"><image src="https://scratch.mit.edu/images/logo_sm.png" height="40px"></image></a>
+        </li>
+        <li class="heading" style="padding: 1em">
+          <a style="color: #ffffff; text-decoration: none" href="https://cabalex.github.io/fnf-song-converter/"><b>FNF Scratch song converter</b></a>
+        </li>
+      </ul>
+    </div>
+    <br></br>
+    <div id="warningNotice" style="display: none; background-color: #ff4d5c; padding: 1em; margin-top:4em; color: white; left:0; border-radius:0.25em">
+      Notice: My official Friday Night Funkin' Scratch project will no longer recieve updates or improvements due to circumstances beyond my control.
+      <br></br>
+      <a href="../takedown-info/index.html" style="text-decoration: none; color:black; padding:0.5em; background-color:white; margin-top: 3em; margin-bottom:1em; border-radius:0.25em">Read more</a></div>
+    <h2>Friday Night Funkin' Scratch Project Downloads</h2>
+<div>  Take your pick on what project you want to download. <b>Unless you absolutely need Winter Horrorland, I recommend the latest version.</b>
+    <br>
+    <br>
+    <b><u>Remember: if you're not making any significant changes to the gameplay, please credit my work in the Notes and Credits section.</u></b> I spent a lot of time on it, and if you don't put it near the top, people won't see it. <b>Also, if you are directly reuploading my project, please don't modify my watermarks to add your own name.</b> I mean, if you're not making any changes, it seems kinda silly, right?
+    <br>
+    <i>Psst! You don't need to credit me if you're just remixing. Scratch credits me automatically! Don't worry about it :)</i>
+    <h3><span class="material-icons">upcoming</span> Download the latest version (v25v3)</h3>
+    <b><a href="https://drive.google.com/file/d/1XkLv45TGPpT5mYtXZPu2ofN3cwspYhIS/view?usp=sharing" style="text-decoration: none; color:white; padding:0.5em; background-color:#4d97ff; margin-top: 3em; margin-bottom:1em; border-radius:0.25em"><span class="material-icons">get_app</span> Download the .sb3 file</a> <a href="https://turbowarp.org/519325355/" style="text-decoration: none; color:white; padding:0.5em; background-color:#0fbd8c; margin-top: 3em; margin-bottom:1em; border-radius:0.25em"><span class="material-icons">sports_esports</span> Edit/download the file in Turbowarp</a> <a href="https://scratch.mit.edu/projects/519325355/" style="text-decoration: none; color:white; padding:0.5em; background-color:#F8AA36; margin-top: 3em; margin-bottom:1em; border-radius:0.25em"><span class="material-icons">sports_esports</span> Scratch reupload</a></b>
+    <br><br><span class="material-icons">warning</span> Getting errors when loading the project in Turbowarp? You may want to try <a href="https://forkphorus.github.io/#519325355">Forkphorus</a> instead.
+    <br><br><span class="material-icons">warning</span> Some school administrations may block you from downloading this file. Requesting permission won't work- try on a personal Google account.
+    <h3 style="background-color: #afafaf"><span class="material-icons">archive</span> Download the latest version with Winter Horrorland included (v7)</h3>
+    <b>This will no longer be updated!</b> While you can add back support manually, I will no longer be maintaining a version with Winter Horrorland included. <div class="tooltip">Here's why.<span class="tooltiptext">Since I really don't want to be banned off of Scratch, I've decided to take more precautions with the second release of my FNF project. I know people like the song, but I can't include it without serious takedown implications. Sorry!</span></div>
+    <br><br>
+    <b><a style="text-decoration: none; color:white; padding:0.5em; background-color:#afafaf; margin-top: 3em; margin-bottom:1em; border-radius:0.25em"><span class="material-icons">get_app</span> Download the .sb3 file (coming soon)</a> <a href="https://turbowarp.org/484321587/" style="text-decoration: none; color:white; padding:0.5em; background-color:#0fbd8c; margin-top: 3em; margin-bottom:1em; border-radius:0.25em"><span class="material-icons">sports_esports</span> Edit/download the file in Turbowarp</a></b>
+    <h3><span class="material-icons">inbox</span> Changelog</h3>
+    <ul class="changelog-items">
+      <li>v25v3 - Optimized note duplication prevention algorithm (thanks <a href="https://scratch.mit.edu/users/kris235">@kris235</a>!)</li>
+      <li>v25v2 - Fixed bug where local high scores were not updating on custom songs.</li>
+      <li>v25v1 - Censored some minor background elements in Week 5.</li>
+      <li>v25 (5/10/2021) - Overhaul of how songs are loaded. Also, fixed bug where high score would show in custom songs.</li>
+      <li>v24v2 (5/4/2021) - Miscellaneous bug fixes.</li>
+      <li>v24v1 (5/2/2021) - Changed Tankman's asset slightly.</li>
+      <li>v24 (5/1/2021) - Overhaul of how combos and misses work; fixed big bug where loading would occur out of order</li>
+      <li>v23v2 (4/27/2021) - Fixed scrolling in the settings menu.</li>
+      <li>v23v1 (4/27/2021) - Fixed bug where "danger" sprites didn't show up.</li>
+      <li>v23 (4/27/2021) - Overhaul of health bar.</li>
+      <li>v22 (4/26/2021) - Note and stage optimizations. Hopefully timings should be less off now?</li>
+      <li>v21v2 (4/24/2021) - Fixed mobile navigation on the menus.</li>
+      <li>v21v1 (4/24/2021) - Miscellaneous bug fixes.</li>
+      <li>v21 (4/24/2021) - New settings and donate menu! You can now configure the controls. Reduced Motion lets you play the game without all the move-y camera bits. Changed the "Misses" counter to "Accuracy", and added the top score for each song to the UI.</li>
+      <li>v20 (4/24/2021) - Huge camera update! Changed the "bop" system from the arrows/notes moving to the whole stage moving at once. Also, Week 7 should run a lot faster as I've optimized the clone count from 15 to 8.</li>
+      <li>v19 (4/22/2021) - Added note calibration! Press C in the menu to enter simple calibration, where you just need to tap to the beat to calibrate. Or, hold C to fine tune your calibration. Each number is a 100th of a second. This may not help in all cases (some computers may have inconsistent latency) but it should help for most.</li>
+      <li>v18 (4/22/2021) - Patched Week 5 to be more family friendly, I guess :)</li>
+      <li>v17 (4/22/2021) - Fixed some background things, and made note timing much more precise (apparently i wasn't checking note presses fast enough).</li>
+      <li>v16 (4/21/2021) - OKAY, I know I said I wouldn't do Week 7. Well, here we are. Updated menus and UI, improved performance, and Week 7, along with another re-release. I should stop promising I won't do things...</li>
+      <br>
+      <li>v15 (4/17/2021) - Added downscroll as a native feature! Toggle with Q in the menu.</li>
+      <li>v14 (3/29/2021) - Added a misses counter and local high scores- try to get perfect!</li>
+      <li>v13 (3/8/2021) - Fixed the bug on pixel songs where held notes didn't display properly. Also, figured I'd package this into a release.</li>
+      <li>v12v2 (3/7/2021) - Fixed ANOTHER giant bug with note detection (should actually work now?)</li>
+      <li>v12v1 (3/7/2021) - Fixed giant bug with note detection, whoops</li>
+      <li>v12 (3/7/2021) - fixed MASSIVE bug where more than one note could be hit at once, causing problems- combos are like... actually possible now (although there may be more lag)- also polished a few things</li>
+      <li>v11 (3/6/2021) - made the internals a bit more friendly to modding.</li>
+      <li>v10 (2/25/2021) - fixed held notes [finally]. It might lag a little more, but at least it's fixed</li>
+      <li>v9v2 (2/25/2021) - ALRIGHT FINE, I made the timing more lenient lol</li>
+      <li>v9v1 (2/23/2021) - fixed bug where you could get points by spamming the keys on held notes (thanks @friday_night_funkinF)</li>
+      <li>v9 (2/23/2021) - scoring systems! compete with the world to get the highest scores on all difficulties.</li>
+      <li>v8 (or i guess 2.0, 2/22/2021) - reuploaded back to Scratch! hopefully i'm actually not taken down this time. includes some improvements to gameplay, and also finishes off all the songs!</li>
+      <br>
+      <li>v7 (2/11/2021) - overhaul of how notes are counted as "hit" or "missed"! it now relies on the timer directly, so it should be more accurate (in most cases >:( )</li>
+      <li>v6 (2/11/2021) - added [most] of Week 6. I just have the spirit's sprites left, but I'll do that sometime soon. also fixed some bugs, but there's prob more</li>
+      <li>v5v1 - fixed bug where you could die in the menu (whoops, thanks @undertale_guy6394647); if you REALLY wanna experience it enable debug mode</li>
+      <li>v5 (2/10/2021) - Added Week 5 and a quirky warning for Winter Horrorland (v8 update: has been removed)</li>
+      <li>v4 (2/9/2021) - No internal changes, but it's now possible to convert songs from FNF! (See the READ ME sprite inside.)</li>
+      <li>v3 (2/9/2021) - you can now choose between different song difficulties. also i may have bloated this project 3x, whoops</li>
+      <li>v2 (2/9/2021) - added week 2 and 4. isn't that funky. also a lot of animations should be more in time now</li>
+      <li>v1 (2/8/2021) - i did it, i made the game. have fun playing weeks 1 and 3 because i am too lazy to do 2</li>
+  div  <
+    <br>
+  </body>
 </html>
