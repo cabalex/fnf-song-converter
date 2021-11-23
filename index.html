@@ -32,15 +32,16 @@
 		<form>
 			<div style="width: 90%; padding-bottom: 20px; max-width: 500px; flex-direction: row; justify-content: left; flex-wrap: wrap; display: flex; background-color: rgba(77, 151, 255, 0.25); align-items: center; border-radius: 0.25rem; padding: 0 0.5em">
 				<p>
-					Expanded note handling (e.g. Tricky Mod Halo notes): <select name="noteHandlingSelector" id="noteHandlingSelector">
+					Extended note handling (e.g. Tricky Mod Halo notes):
+					<select name="noteHandlingSelector" id="noteHandlingSelector" onchange="document.getElementById('fileInput').value = ''; document.getElementById('output').innerHTML = '';">
 						<option value="ignore">Ignore unexpected notes</option>
 						<option value="modulo">Limit to default range (0-7)</option>
 						<option value="expanded">Allow all notes (EXPERIMENTAL)</option>
 						<option value="expanded_unmodified">Allow all notes without modifications (EXPERIMENTAL)</option>
-				</select><br><a style="font-size: 12px;" href="https://github.com/cabalex/fnf-song-converter/wiki/Making-and-Importing-New-Songs#step-2--converting-your-song-map">What does this mean?</a></p>
+				</select>
+				<br><a style="font-size: 12px;" href="https://github.com/cabalex/fnf-song-converter/wiki#what-do-the-extended-note-handling-options-mean">What does this mean?</a></p>
 				<p id="fileName" onclick="getFile()" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">Upload your file...</p>
-				</div>
-		  </div>
+			</div>
 			<div style='height: 0px;width: 0px; overflow:hidden;'><input type="file" accept=".json", id="fileInput", onchange="fileLoad(event)"></div>
 		</form>
 		<div id="output" style="width: 90%; max-width: 500px; flex-direction: row; justify-content: left; flex-wrap: wrap; display: flex; background-color: rgba(77, 151, 255, 0.25); align-items: center; border-radius: 0.25rem; padding:0.5em; margin:0.5em 0; display: none;"></div>

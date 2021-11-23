@@ -29,11 +29,6 @@ img {
     transition: border 0.2s, filter 0.2s, margin 0.2s;
     cursor: pointer;
 }
-#fileName:hover, #download:hover {
-    border: 4px solid rgba(0, 0, 0, 0.2);
-    filter: brightness(85%);
-    margin: calc(0.5em-4px);
-}
 #download {
     display: block;
     text-align: center;
@@ -47,6 +42,10 @@ img {
     border-radius: 0.25rem;
     margin: 0.5em;
     text-decoration: none
+}
+#fileName:hover, #download:hover {
+    outline: 4px solid rgba(0, 0, 0, 0.2);
+    filter: brightness(85%);
 }
 a {
     text-decoration: none;
@@ -107,11 +106,11 @@ img {
 /* dark mode */
 @media (prefers-color-scheme: dark) {
     body {
-        color: white;
+        color: #ddd;
     }
     /* full height of page instead of page content */
     body:before {
-        background: linear-gradient(#212121, #000000);
+        background: #111;
         content: "";
         position: fixed;
         top: 0;
