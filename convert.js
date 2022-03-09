@@ -122,6 +122,19 @@ function loadFile(file) {
                         addToNotesList(timing, `${assignment[note[1]]}_${note[2]}`);
                     }
                     break;
+                case "expanded_truncate":
+                    addToNotesList(timing, `${Math.floor(note[1]/8)*8 + assignment[note[1]%8]}_${note[2]}`);
+                    break;
+                case "expanded_unmodified_truncate":
+                    if (note[1] < 8) {
+                        addToNotesList(timing, `${assignment[note[1]]}_${note[2]}`);
+                    } else {
+                        addToNotesList(timing, `${note[1]}_${note[2]}`);
+                    }
+                    break;
+                case "expanded":
+                    addToNotesList(timing, `${Math.floor(note[1]/8)*8 + assignment[note[1]%8]}_${note.slice(2).join('_')}`);
+                    break;
                 case "expanded_unmodified":
                     if (note[1] < 8) {
                         addToNotesList(timing, `${assignment[note[1]]}_${note.slice(2).join('_')}`);
@@ -129,8 +142,6 @@ function loadFile(file) {
                         addToNotesList(timing, note.slice(1).join('_'));
                     }
                     break;
-                case "expanded":
-                    addToNotesList(timing, `${Math.floor(note[1]/8)*8 + assignment[note[1]%8]}_${note.slice(2).join('_')}`);
             }
         }
     }

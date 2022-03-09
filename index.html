@@ -34,10 +34,12 @@
 				<p>
 					Extended note handling (e.g. Tricky Mod Halo notes):
 					<select name="noteHandlingSelector" id="noteHandlingSelector" onchange="document.getElementById('fileInput').value = ''; document.getElementById('output').innerHTML = '';">
-						<option value="ignore">Ignore unexpected notes</option>
-						<option value="modulo">Limit to default range (0-7)</option>
-						<option value="expanded">Allow all notes (EXPERIMENTAL)</option>
-						<option value="expanded_unmodified">Allow all notes without modifications (EXPERIMENTAL)</option>
+						<option value="ignore">Ignore all unexpected notes</option>
+						<option value="modulo">Limit to default range (0-7), ignore modified notes</option>
+						<option value="expanded_truncate">Allow all notes, truncate extra data (EXPERIMENTAL)</option>
+						<option value="expanded_unmodified_truncate">Allow all notes without modifications, truncate extra data (EXPERIMENTAL)</option>
+						<option value="expanded">Allow all notes, include extra data (EXPERIMENTAL)</option>
+						<option value="expanded_unmodified">Allow all notes without modifications, include extra data (EXPERIMENTAL)</option>
 				</select>
 				<br><a style="font-size: 12px;" href="https://github.com/cabalex/fnf-song-converter/wiki#what-do-the-extended-note-handling-options-mean">What does this mean?</a></p>
 				<p id="fileName" onclick="getFile()" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">Upload your file...</p>
